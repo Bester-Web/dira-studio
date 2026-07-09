@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DIRA STUDIO — DESIGN SYSTEM
+   Single source of truth for every visual token.
+   Never hardcode colours, radii, shadows or timings in components.
+   ============================================================ */
+
+:root {
+  /* ---- Colour: surfaces (dark, layered — never pure black) ---- */
+  --ds-bg-deep: #07070c;
+  --ds-bg: #0a0a12;
+  --ds-bg-elevated: #10101a;
+  --ds-surface: rgba(255, 255, 255, 0.04);
+  --ds-surface-hover: rgba(255, 255, 255, 0.07);
+
+  /* ---- Colour: content ---- */
+  --ds-foreground: #f5f6f8;
+  --ds-muted: #9ca3b8;
+  --ds-muted-strong: #b8bdcc;
+  --ds-faint: #6b7186;
+
+  /* ---- Colour: brand ---- */
+  --ds-accent: #7c5cff;
+  --ds-accent-soft: #a78bfa;
+  --ds-accent-glow: rgba(124, 92, 255, 0.22);
+  --ds-accent-foreground: #ffffff;
+
+  /* ---- Colour: semantic ---- */
+  --ds-whatsapp: #25d366;
+  --ds-success: #34d399;
+  --ds-destructive: #f87171;
+
+  /* ---- Borders ---- */
+  --ds-border: rgba(255, 255, 255, 0.08);
+  --ds-border-strong: rgba(255, 255, 255, 0.14);
+  --ds-ring: #a78bfa;
+
+  /* ---- Radius scale ---- */
+  --ds-radius-sm: 0.5rem;
+  --ds-radius-md: 0.75rem;
+  --ds-radius-lg: 1rem;
+  --ds-radius-xl: 1.25rem;
+  --ds-radius-2xl: 1.5rem;
+  --ds-radius-pill: 999px;
+
+  /* ---- Elevation ---- */
+  --ds-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --ds-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --ds-shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.45);
+  --ds-shadow-accent: 0 8px 32px var(--ds-accent-glow);
+  --ds-shadow-accent-lg: 0 12px 48px rgba(124, 92, 255, 0.32);
+
+  /* ---- Motion ---- */
+  --ds-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ds-duration-fast: 150ms;
+  --ds-duration: 300ms;
+  --ds-duration-slow: 600ms;
+
+  /* ---- Layout ---- */
+  --ds-container: 76rem; /* 1216px */
+  --ds-container-narrow: 46rem;
+  --ds-header-height: 4.5rem;
+}
+
+@theme inline {
+  /* Map design tokens into Tailwind utilities */
+  --color-background: var(--ds-bg);
+  --color-background-deep: var(--ds-bg-deep);
+  --color-background-elevated: var(--ds-bg-elevated);
+  --color-surface: var(--ds-surface);
+  --color-surface-hover: var(--ds-surface-hover);
+  --color-foreground: var(--ds-foreground);
+  --color-muted: var(--ds-muted);
+  --color-muted-strong: var(--ds-muted-strong);
+  --color-faint: var(--ds-faint);
+  --color-accent: var(--ds-accent);
+  --color-accent-soft: var(--ds-accent-soft);
+  --color-accent-foreground: var(--ds-accent-foreground);
+  --color-whatsapp: var(--ds-whatsapp);
+  --color-success: var(--ds-success);
+  --color-destructive: var(--ds-destructive);
+  --color-border: var(--ds-border);
+  --color-border-strong: var(--ds-border-strong);
+  --color-ring: var(--ds-ring);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: var(--ds-radius-sm);
+  --radius-md: var(--ds-radius-md);
+  --radius-lg: var(--ds-radius-lg);
+  --radius-xl: var(--ds-radius-xl);
+  --radius-2xl: var(--ds-radius-2xl);
+  --radius-pill: var(--ds-radius-pill);
+
+  --shadow-sm: var(--ds-shadow-sm);
+  --shadow-md: var(--ds-shadow-md);
+  --shadow-lg: var(--ds-shadow-lg);
+  --shadow-accent: var(--ds-shadow-accent);
+  --shadow-accent-lg: var(--ds-shadow-accent-lg);
+
+  --ease-premium: var(--ds-ease);
+
+  --animate-accordion-down: accordion-down 300ms var(--ds-ease);
+  --animate-accordion-up: accordion-up 300ms var(--ds-ease);
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+}
+
+/* ---- Base ---- */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--ds-bg);
+  color: var(--ds-foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--ds-accent);
+  color: var(--ds-accent-foreground);
+}
+
+/* ---- Typography rhythm ---- */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* ---- Focus visibility (keyboard nav) ---- */
+:focus-visible {
+  outline: 2px solid var(--ds-ring);
+  outline-offset: 2px;
+  border-radius: var(--ds-radius-sm);
+}
+
+/* ---- Utility: ambient glow used behind heroes and CTAs ---- */
+.ds-glow {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--ds-accent-glow), transparent 65%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* ---- Utility: hairline card ---- */
+.ds-card {
+  background-color: var(--ds-surface);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-xl);
+  transition:
+    border-color var(--ds-duration) var(--ds-ease),
+    background-color var(--ds-duration) var(--ds-ease),
+    transform var(--ds-duration) var(--ds-ease),
+    box-shadow var(--ds-duration) var(--ds-ease);
+}
+
+.ds-card-interactive:hover {
+  background-color: var(--ds-surface-hover);
+  border-color: var(--ds-border-strong);
+  transform: translateY(-4px);
+  box-shadow: var(--ds-shadow-md);
+}
+
+/* ---- Utility: gradient text for key phrases ---- */
+.ds-gradient-text {
+  background: linear-gradient(120deg, var(--ds-accent-soft), var(--ds-accent) 60%, var(--ds-accent-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
