@@ -28,4 +28,13 @@ export const siteConfig = {
     portfolioSection: true,
     pricingSection: true,
   },
+  /**
+   * 3D hero scene (Spline). Set enabled: false to return to the
+   * text-only hero, or swap the URL for any other scene export.
+   * Loads on desktop only, and never for reduced-motion users.
+   */
+  heroScene: {
+    enabled: true,
+    url: "https://prod.spline.design/oeExwdARrtvYt38J/scene.splinecode",
+  },
 } as const;
