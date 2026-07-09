@@ -12,7 +12,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "About Us",
-  description: `${company.name} builds premium websites for service businesses across South Africa — engineered to generate calls, WhatsApp enquiries and quote requests.`,
+  description: `${company.name} builds websites for service businesses across South Africa, engineered to generate calls, WhatsApp enquiries and quote requests.`,
   path: "/about",
 });
 
@@ -36,15 +36,15 @@ export default function AboutPage() {
           <Reveal delay={0.16}>
             <div className="mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-muted md:text-lg">
               <p>
-                Somewhere in your area is a business that does worse work than you —
+                Somewhere in your area is a business that does worse work than you
                 and wins more customers. Not because they&apos;re better. Because they
                 show up first, look more established, and make it effortless to get
                 in touch.
               </p>
               <p>
                 {company.name} was founded to fix that imbalance. We build websites
-                for service businesses — electricians, builders, law firms, solar
-                installers and dozens more — with a single obsession: turning the
+                for service businesses. Electricians, builders, law firms, solar
+                installers and dozens more, with a single obsession: turning the
                 people already searching for your services into calls, WhatsApp
                 messages and quote requests.
               </p>
@@ -52,7 +52,7 @@ export default function AboutPage() {
                 We&apos;re not a volume shop and we don&apos;t do template work. Every
                 project gets senior attention, honest advice and a fixed quote. If we
                 don&apos;t believe a website will grow your business, we&apos;ll tell
-                you — before you spend a rand.
+                you before you spend a rand.
               </p>
             </div>
           </Reveal>
@@ -89,7 +89,7 @@ export default function AboutPage() {
             {[
               {
                 title: "A website is an employee, not an expense.",
-                body: "It should show up every day, represent you perfectly, and bring in work. We design to that job description — and we measure performance the way you'd measure any employee: results.",
+                body: "It should show up every day, represent you perfectly, and bring in work. We design to that job description, and we measure performance the way you'd measure any employee: results.",
               },
               {
                 title: "Trust is won in seconds.",
@@ -97,7 +97,7 @@ export default function AboutPage() {
               },
               {
                 title: "Simple beats clever.",
-                body: "Visitors don't want to be impressed — they want to be helped. The best websites make the next step obvious: call, WhatsApp, or request a quote. Everything else is decoration.",
+                body: "Visitors don't want to be impressed. They want to be helped. The best websites make the next step obvious: call, WhatsApp, or request a quote. Everything else is decoration.",
               },
             ].map((principle, i) => (
               <Reveal key={principle.title} delay={i * 0.08}>

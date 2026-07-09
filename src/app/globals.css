@@ -2,39 +2,45 @@
 
 /* ============================================================
    DIRA STUDIO — DESIGN SYSTEM
+   Light khaki, liquid glass.
    Single source of truth for every visual token.
    Never hardcode colours, radii, shadows or timings in components.
    ============================================================ */
 
 :root {
-  /* ---- Colour: surfaces (dark, layered — never pure black) ---- */
-  --ds-bg-deep: #07070c;
-  --ds-bg: #0a0a12;
-  --ds-bg-elevated: #10101a;
-  --ds-surface: rgba(255, 255, 255, 0.04);
-  --ds-surface-hover: rgba(255, 255, 255, 0.07);
+  /* ---- Colour: surfaces (warm cream and sand) ---- */
+  --ds-bg: #f5f1e7;
+  --ds-bg-deep: #ece5d6;
+  --ds-bg-elevated: #fbf9f3;
+  --ds-surface: rgba(255, 255, 255, 0.55);
+  --ds-surface-hover: rgba(255, 255, 255, 0.75);
 
-  /* ---- Colour: content ---- */
-  --ds-foreground: #f5f6f8;
-  --ds-muted: #9ca3b8;
-  --ds-muted-strong: #b8bdcc;
-  --ds-faint: #6b7186;
+  /* ---- Colour: content (warm ink) ---- */
+  --ds-foreground: #262115;
+  --ds-muted: #6e6551;
+  --ds-muted-strong: #514935;
+  --ds-faint: #9a9077;
 
-  /* ---- Colour: brand ---- */
-  --ds-accent: #7c5cff;
-  --ds-accent-soft: #a78bfa;
-  --ds-accent-glow: rgba(124, 92, 255, 0.22);
+  /* ---- Colour: brand (khaki bronze) ---- */
+  --ds-accent: #806b3f;
+  --ds-accent-soft: #8f7947;
+  --ds-accent-glow: rgba(160, 138, 87, 0.28);
   --ds-accent-foreground: #ffffff;
 
+  /* ---- Colour: ink (primary buttons, strong elements) ---- */
+  --ds-ink: #292315;
+  --ds-ink-foreground: #f7f3e9;
+
   /* ---- Colour: semantic ---- */
-  --ds-whatsapp: #25d366;
-  --ds-success: #34d399;
-  --ds-destructive: #f87171;
+  --ds-whatsapp: #1da851;
+  --ds-success: #806b3f;
+  --ds-destructive: #b3402f;
 
   /* ---- Borders ---- */
-  --ds-border: rgba(255, 255, 255, 0.08);
-  --ds-border-strong: rgba(255, 255, 255, 0.14);
-  --ds-ring: #a78bfa;
+  --ds-border: rgba(74, 62, 36, 0.14);
+  --ds-border-strong: rgba(74, 62, 36, 0.26);
+  --ds-glass-border: rgba(255, 255, 255, 0.65);
+  --ds-ring: #806b3f;
 
   /* ---- Radius scale ---- */
   --ds-radius-sm: 0.5rem;
@@ -44,12 +50,15 @@
   --ds-radius-2xl: 1.5rem;
   --ds-radius-pill: 999px;
 
-  /* ---- Elevation ---- */
-  --ds-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --ds-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
-  --ds-shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.45);
-  --ds-shadow-accent: 0 8px 32px var(--ds-accent-glow);
-  --ds-shadow-accent-lg: 0 12px 48px rgba(124, 92, 255, 0.32);
+  /* ---- Elevation (warm shadows) ---- */
+  --ds-shadow-sm: 0 1px 2px rgba(80, 65, 35, 0.08);
+  --ds-shadow-md: 0 12px 32px rgba(80, 65, 35, 0.12);
+  --ds-shadow-lg: 0 32px 80px rgba(80, 65, 35, 0.16);
+  --ds-shadow-accent: 0 8px 28px rgba(41, 35, 21, 0.22);
+  --ds-shadow-accent-lg: 0 14px 40px rgba(41, 35, 21, 0.3);
+
+  /* ---- Liquid glass ---- */
+  --ds-glass-blur: 16px;
 
   /* ---- Motion ---- */
   --ds-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -77,6 +86,8 @@
   --color-accent: var(--ds-accent);
   --color-accent-soft: var(--ds-accent-soft);
   --color-accent-foreground: var(--ds-accent-foreground);
+  --color-ink: var(--ds-ink);
+  --color-ink-foreground: var(--ds-ink-foreground);
   --color-whatsapp: var(--ds-whatsapp);
   --color-success: var(--ds-success);
   --color-destructive: var(--ds-destructive);
@@ -118,7 +129,7 @@
 /* ---- Base ---- */
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -127,6 +138,19 @@ body {
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Ambient warm blobs behind the glass layers */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(40rem 28rem at 12% 8%, rgba(196, 176, 128, 0.3), transparent 65%),
+    radial-gradient(36rem 26rem at 88% 30%, rgba(214, 196, 152, 0.26), transparent 65%),
+    radial-gradient(44rem 30rem at 50% 95%, rgba(226, 212, 176, 0.32), transparent 70%);
 }
 
 ::selection {
@@ -162,11 +186,14 @@ p {
   filter: blur(40px);
 }
 
-/* ---- Utility: hairline card ---- */
+/* ---- Utility: liquid glass card ---- */
 .ds-card {
   background-color: var(--ds-surface);
-  border: 1px solid var(--ds-border);
+  backdrop-filter: blur(var(--ds-glass-blur)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(140%);
+  border: 1px solid var(--ds-glass-border);
   border-radius: var(--ds-radius-xl);
+  box-shadow: var(--ds-shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.7);
   transition:
     border-color var(--ds-duration) var(--ds-ease),
     background-color var(--ds-duration) var(--ds-ease),
@@ -176,14 +203,13 @@ p {
 
 .ds-card-interactive:hover {
   background-color: var(--ds-surface-hover);
-  border-color: var(--ds-border-strong);
   transform: translateY(-4px);
-  box-shadow: var(--ds-shadow-md);
+  box-shadow: var(--ds-shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 /* ---- Utility: gradient text for key phrases ---- */
 .ds-gradient-text {
-  background: linear-gradient(120deg, var(--ds-accent-soft), var(--ds-accent) 60%, var(--ds-accent-soft));
+  background: linear-gradient(120deg, #6e5c33, var(--ds-accent) 55%, #a98f56);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

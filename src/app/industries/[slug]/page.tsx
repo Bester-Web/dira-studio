@@ -124,7 +124,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
             <SectionHeading
               eyebrow="How we fix it"
               heading="A website built for how your customers choose"
-              subheading="Not a generic template with your logo on it — a system designed around the decisions your customers make."
+              subheading="Not a generic template with your logo dropped on it. A system designed around the decisions your customers make."
             />
           </Reveal>
           <div className="grid gap-5 md:grid-cols-2">
@@ -192,7 +192,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
             <span className="ds-gradient-text"> find first?</span>
           </>
         }
-        subheading="A 15-minute conversation about your business. No pressure, no jargon — just an honest look at what a proper website would change."
+        subheading="A 15-minute conversation about your business. No pressure and no jargon, just an honest look at what a proper website would change."
       />
     </>
   );

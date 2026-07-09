@@ -1,19 +1,19 @@
 import type { ProcessStep, Stat, ValueProp } from "./types";
 
-/** The Dira Studio process — shown on the homepage and About page. */
+/** The Dira Studio process, shown on the About and Services pages. */
 export const processSteps: ProcessStep[] = [
   {
     number: "01",
     title: "Understand",
     description:
-      "A short, focused conversation about your business: the jobs you want more of, the customers you want to attract, and what's stopping them from choosing you today.",
+      "A short conversation about your business: the jobs you want more of, the customers you want to attract, and what's stopping them from choosing you today.",
     icon: "search",
   },
   {
     number: "02",
     title: "Design",
     description:
-      "We design your website around the moment a customer decides to contact you. You see the direction early and shape it with us — no big reveal, no surprises.",
+      "We design your website around the moment a customer decides to contact you. You see the direction early and shape it with us. No big reveal, no surprises.",
     icon: "pen-tool",
   },
   {
@@ -32,12 +32,12 @@ export const processSteps: ProcessStep[] = [
   },
 ];
 
-/** Why Choose Dira Studio — value propositions. */
+/** Why Choose Dira Studio value propositions. */
 export const valueProps: ValueProp[] = [
   {
     title: "Built to generate enquiries",
     description:
-      "We measure success in calls, WhatsApps and quote requests — not design awards. Every pixel has a job: moving a visitor closer to contacting you.",
+      "We measure success in calls, WhatsApps and quote requests, not design awards. Every pixel has a job: moving a visitor closer to contacting you.",
     icon: "target",
   },
   {
@@ -49,7 +49,7 @@ export const valueProps: ValueProp[] = [
   {
     title: "Fast, because speed wins jobs",
     description:
-      "Your customers are on mobile, often mid-emergency. Our sites load in under two seconds — before your competitor's has shown its logo.",
+      "Your customers are on mobile, often mid-emergency. Our sites load in under two seconds, before your competitor's has shown its logo.",
     icon: "gauge",
   },
   {
@@ -59,9 +59,9 @@ export const valueProps: ValueProp[] = [
     icon: "clock",
   },
   {
-    title: "Premium look, honest pricing",
+    title: "Premium look, honest quoting",
     description:
-      "Fixed quotes agreed upfront. A website that makes you look like the market leader shouldn't require enterprise budgets.",
+      "One fixed quote agreed upfront. A website that makes you look like the market leader shouldn't come with billing surprises.",
     icon: "award",
   },
   {
@@ -76,7 +76,7 @@ export const valueProps: ValueProp[] = [
 export const stats: Stat[] = [
   { value: "3.2x", label: "average increase in enquiries" },
   { value: "<2s", label: "mobile load time on every site" },
-  { value: "2–4", label: "weeks from kickoff to launch" },
+  { value: "2-4", label: "weeks from kickoff to launch" },
   { value: "100%", label: "fixed quotes, zero surprises" },
 ];
 

@@ -34,16 +34,16 @@ export default function PrivacyPolicyPage() {
             <h2>Information we collect</h2>
             <ul>
               <li>
-                <strong className="text-muted-strong">Contact details you give us</strong> — name,
+                <strong className="text-muted-strong">Contact details you give us:</strong> name,
                 email address, phone number and business name when you submit our
                 contact form, WhatsApp us, call us or email us.
               </li>
               <li>
-                <strong className="text-muted-strong">Project information</strong> — details about
+                <strong className="text-muted-strong">Project information:</strong> details about
                 your business that you share so we can quote and deliver work.
               </li>
               <li>
-                <strong className="text-muted-strong">Technical data</strong> — standard server
+                <strong className="text-muted-strong">Technical data:</strong> standard server
                 logs (IP address, browser type, pages visited) used to keep the site
                 secure and performing well.
               </li>

@@ -7,7 +7,7 @@ export const company = {
   legalName: "Dira Studio (Pty) Ltd",
   tagline: "Websites that win you customers",
   description:
-    "Dira Studio designs and builds premium websites for service businesses — engineered to turn visitors into calls, WhatsApp messages and quote requests.",
+    "Dira Studio builds websites for service businesses that turn visitors into calls, WhatsApp messages and quote requests.",
   foundedYear: 2023,
   country: "South Africa",
   city: "Cape Town",
@@ -23,13 +23,13 @@ export const company = {
     email: "hello@dirastudio.co.za",
     /** Display format */
     phone: "+27 82 000 0000",
-    /** tel: link format — digits only with country code */
+    /** tel: link format, digits only with country code */
     phoneHref: "+27820000000",
-    /** WhatsApp number — digits only with country code, no plus */
+    /** WhatsApp number, digits only with country code, no plus */
     whatsapp: "27820000000",
     whatsappMessage: "Hi Dira Studio! I'd like to chat about a website for my business.",
   },
-  hours: "Mon – Fri, 08:00 – 17:00 SAST",
+  hours: "Mon to Fri, 08:00 to 17:00 SAST",
 } as const;
 
 /** Prebuilt WhatsApp deep link with default message. */

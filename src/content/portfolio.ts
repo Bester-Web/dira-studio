@@ -5,9 +5,7 @@ import type { PortfolioProject } from "./types";
  *
  * NOTE: These are launch placeholders demonstrating the format.
  * Replace with real client projects as they complete. Cover art is
- * generated from `accentHue` until real screenshots are added to
- * /public/images/portfolio/<slug>.jpg (the card detects the file
- * automatically via the `image` convention below).
+ * generated from `accentHue` until real screenshots are added.
  */
 export const portfolio: PortfolioProject[] = [
   {
@@ -19,7 +17,7 @@ export const portfolio: PortfolioProject[] = [
     summary:
       "A complete digital rebuild for a two-van electrical business that relied entirely on word of mouth.",
     services: ["Website Design", "Technical SEO", "Google Business Profile"],
-    accentHue: 258,
+    accentHue: 42,
     caseStudy: {
       goal: "Turn an invisible online presence into a steady source of booked jobs, without relying on referrals.",
       problem:
@@ -32,7 +30,7 @@ export const portfolio: PortfolioProject[] = [
         { value: "68%", label: "of enquiries now arrive via WhatsApp" },
       ],
       narrative:
-        "Within the first month, Volt started ranking in the local map pack for their core suburbs. By day 90 the owner had hired a third electrician to keep up with booked work — and stopped discounting to win jobs, because customers arrived already trusting the brand.",
+        "Within the first month, Volt started ranking in the local map results for their core suburbs. By day 90 the owner had hired a third electrician to keep up with booked work. He also stopped discounting to win jobs, because customers arrived already trusting the brand.",
     },
   },
   {
@@ -42,22 +40,22 @@ export const portfolio: PortfolioProject[] = [
     industry: "Plumbers",
     year: "2025",
     summary:
-      "A redesign focused on the customer with a burst geyser at 9pm — and the three seconds they give a website.",
+      "A redesign built for the customer with a burst geyser at 9pm and the three seconds they give a website.",
     services: ["Website Redesign", "Landing Pages", "Google Ads"],
     accentHue: 205,
     caseStudy: {
       goal: "Convert expensive emergency-search ad clicks into calls instead of bounces.",
       problem:
-        "AquaFlow was spending heavily on Google Ads but sending clicks to a slow, cluttered homepage. Mobile visitors — people standing in rising water — couldn't find the phone number without scrolling.",
+        "AquaFlow was spending heavily on Google Ads but sending clicks to a slow, cluttered homepage. Mobile visitors, people standing in rising water, couldn't find the phone number without scrolling.",
       solution:
         "We rebuilt the site with a persistent call bar on mobile, a dedicated emergency landing page matched to their ad campaigns, and upfront pricing guidance that filtered out tyre-kickers before they called.",
       results: [
-        { value: "-47%", label: "cost per lead from the same ad budget" },
+        { value: "47%", label: "lower cost per lead, same ad budget" },
         { value: "1.4s", label: "mobile load time, down from 8s" },
         { value: "2.2x", label: "more after-hours emergency calls" },
       ],
       narrative:
-        "The same ad spend now produces more than double the emergency calls. The persistent call bar alone accounts for a third of all conversions — proof that on mobile, removing one scroll can change a business.",
+        "The same ad spend now produces more than double the emergency calls. The persistent call bar alone accounts for a third of all conversions. On mobile, removing one scroll can change a business.",
     },
   },
   {
@@ -69,11 +67,11 @@ export const portfolio: PortfolioProject[] = [
     summary:
       "An education-led website that turns months of solar research into qualified quote requests.",
     services: ["Website Design", "Branding", "Technical SEO"],
-    accentHue: 38,
+    accentHue: 28,
     caseStudy: {
       goal: "Capture homeowners early in their solar research and stay with them until they request a quote.",
       problem:
-        "Solar customers research for months before buying. Helios had no way to be part of that journey — their single-page site answered nothing, so visitors researched on competitors' sites and bought there too.",
+        "Solar customers research for months before buying. Helios had no way to be part of that journey. Their single-page site answered nothing, so visitors researched on competitors' sites and bought there too.",
       solution:
         "We designed a content-rich site around the questions every solar buyer asks: costs, payback periods, load shedding protection, financing. A savings-focused quote form made the next step feel like a calculation, not a commitment.",
       results: [
@@ -82,7 +80,7 @@ export const portfolio: PortfolioProject[] = [
         { value: "Top 3", label: "Google results for 12 buying keywords" },
       ],
       narrative:
-        "Helios now enters sales conversations with customers who already trust them — because the website answered their questions for months before they were ready. Average deal size increased because educated customers choose better systems.",
+        "Helios now enters sales conversations with customers who already trust them, because the website answered their questions for months before they were ready. Average deal size increased because educated customers choose better systems.",
     },
   },
   {
@@ -92,9 +90,9 @@ export const portfolio: PortfolioProject[] = [
     industry: "Security Companies",
     year: "2024",
     summary:
-      "A premium brand and website for a security company competing against national franchises.",
+      "A brand and website rebuild for a security company competing against national franchises.",
     services: ["Branding", "Website Design", "Google Business Profile"],
-    accentHue: 152,
+    accentHue: 160,
     caseStudy: {
       goal: "Make a local security company feel more trustworthy than the national brands it competes against.",
       problem:
@@ -107,7 +105,7 @@ export const portfolio: PortfolioProject[] = [
         { value: "9/10", label: "new clients cite the website as a trust factor" },
       ],
       narrative:
-        "Sentinel now wins estate and complex contracts that previously defaulted to national brands. The sales team reports that prospects arrive at meetings already convinced — the website does the first meeting for them.",
+        "Sentinel now wins estate and complex contracts that previously defaulted to national brands. The sales team reports that prospects arrive at meetings already convinced. The website does the first meeting for them.",
     },
   },
 ];

@@ -39,7 +39,7 @@ export function localBusinessSchema() {
     url: siteConfig.url,
     telephone: company.contact.phone,
     email: company.contact.email,
-    priceRange: "R12,500 - R45,000+",
+    priceRange: "$$",
     description: company.description,
     address: {
       "@type": "PostalAddress",

@@ -19,9 +19,9 @@ interface IndustriesGridProps {
 export function IndustriesGrid({
   industries,
   showAllLink = false,
-  eyebrow = "Industries",
+  eyebrow = "Who it's for",
   heading = "Built for businesses like yours",
-  subheading = "We specialise in service businesses — because winning a customer who's searching for help right now is a very specific craft.",
+  subheading = "We work with service businesses, because winning a customer who's searching for help right now is a very specific craft.",
 }: IndustriesGridProps) {
   return (
     <section className="py-24 md:py-32">

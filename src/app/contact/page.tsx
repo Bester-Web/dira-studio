@@ -10,19 +10,9 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Contact Us",
   description:
-    "Get a free quote for a website that generates customers. Call, WhatsApp or send a message — we reply within one business day.",
+    "Get a quote for a website that generates customers. Call, WhatsApp or send a message. We reply within one business day.",
   path: "/contact",
 });
-
-const packageNames: Record<string, string> = {
-  starter: "starter",
-  professional: "professional",
-  premium: "premium",
-};
-
-interface ContactPageProps {
-  searchParams: Promise<{ package?: string }>;
-}
 
 const contactChannels = [
   {
@@ -48,10 +38,7 @@ const contactChannels = [
   },
 ] as const;
 
-export default async function ContactPage({ searchParams }: ContactPageProps) {
-  const { package: pkg } = await searchParams;
-  const defaultService = pkg ? (packageNames[pkg] ?? "") : "";
-
+export default function ContactPage() {
   return (
     <>
       <section className="relative overflow-hidden py-20 md:py-24">
@@ -84,9 +71,9 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             <Reveal>
               <div className="ds-card p-8 md:p-10">
                 <h2 className="mb-8 font-display text-xl font-semibold text-foreground">
-                  Request your free quote
+                  Request your quote
                 </h2>
-                <ContactForm defaultService={defaultService} />
+                <ContactForm />
               </div>
             </Reveal>
 
@@ -101,7 +88,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                       : {})}
                     className="ds-card ds-card-interactive flex items-center gap-4 p-6"
                   >
-                    <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent-soft">
+                    <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
                       <channel.icon className="size-5" aria-hidden />
                     </span>
                     <span>
@@ -116,7 +103,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
               <Reveal delay={0.3}>
                 <div className="ds-card flex items-center gap-4 p-6">
-                  <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent-soft">
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
                     <Clock className="size-5" aria-hidden />
                   </span>
                   <span>
@@ -128,10 +115,10 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                 </div>
               </Reveal>
 
-              {/* Map placeholder — swap for an embed when the office address is public */}
+              {/* Map placeholder. Swap for an embed when the office address is public */}
               <Reveal delay={0.36}>
-                <div className="ds-card flex min-h-52 flex-1 flex-col items-center justify-center gap-3 bg-[linear-gradient(135deg,rgba(124,92,255,0.06),rgba(255,255,255,0.02))] p-6 text-center">
-                  <MapPin className="size-7 text-accent-soft" aria-hidden />
+                <div className="ds-card flex min-h-52 flex-1 flex-col items-center justify-center gap-3 p-6 text-center">
+                  <MapPin className="size-7 text-accent" aria-hidden />
                   <p className="font-display text-sm font-semibold text-foreground">
                     {company.city}, {company.country}
                   </p>

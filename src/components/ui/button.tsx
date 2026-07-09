@@ -10,13 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-accent text-accent-foreground shadow-accent hover:shadow-accent-lg hover:-translate-y-0.5 hover:brightness-110",
+          "bg-ink text-ink-foreground shadow-accent hover:shadow-accent-lg hover:-translate-y-0.5 hover:brightness-110",
         secondary:
-          "border border-border-strong bg-surface text-foreground hover:bg-surface-hover hover:border-accent/60",
+          "border border-(--ds-glass-border) bg-surface text-foreground backdrop-blur-md hover:bg-surface-hover hover:border-accent/40 shadow-sm",
         ghost: "text-muted-strong hover:text-foreground hover:bg-surface",
         whatsapp:
-          "bg-whatsapp text-[#062b16] font-semibold hover:-translate-y-0.5 hover:brightness-105 shadow-[0_8px_32px_rgba(37,211,102,0.25)]",
-        link: "text-accent-soft underline-offset-4 hover:underline p-0 h-auto",
+          "border border-(--ds-glass-border) bg-surface text-foreground font-semibold backdrop-blur-md shadow-sm hover:bg-surface-hover hover:-translate-y-0.5 [&_svg]:text-whatsapp",
+        link: "text-accent underline-offset-4 hover:underline p-0 h-auto",
       },
       size: {
         sm: "h-9 px-4 text-sm",

@@ -11,7 +11,7 @@ import { faqSchema, jsonLd } from "@/lib/schema";
 export const metadata: Metadata = buildMetadata({
   title: "Frequently Asked Questions",
   description:
-    "Everything business owners ask about working with Dira Studio — pricing, timelines, process, SEO and what happens after launch.",
+    "Everything business owners ask about working with Dira Studio: costs, timelines, process, SEO and what happens after launch.",
   path: "/faq",
 });
 
@@ -49,7 +49,7 @@ export default function FaqPage() {
         items={faqs}
         eyebrow="All questions"
         heading="The full list"
-        subheading="Still unanswered? WhatsApp us — a real person replies, fast."
+        subheading="Still unanswered? WhatsApp us. A real person replies, fast."
       />
       <FinalCta />
     </>

@@ -74,7 +74,7 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
           Message received. We&apos;re on it.
         </h3>
         <p className="max-w-sm text-sm leading-relaxed text-muted">
-          Expect a reply within one business day — usually much sooner. If it&apos;s
+          Expect a reply within one business day, usually much sooner. If it&apos;s
           urgent, WhatsApp or call us and we&apos;ll pick up.
         </p>
       </div>
@@ -151,17 +151,8 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
               {s.name}
             </option>
           ))}
-          <option value="starter" className="bg-background-elevated">
-            Starter package
-          </option>
-          <option value="professional" className="bg-background-elevated">
-            Professional package
-          </option>
-          <option value="premium" className="bg-background-elevated">
-            Premium package
-          </option>
           <option value="not-sure" className="bg-background-elevated">
-            Not sure yet — advise me
+            Not sure yet, advise me
           </option>
         </select>
       </Field>

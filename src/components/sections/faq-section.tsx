@@ -25,7 +25,7 @@ export function FaqSection({
   showAllLink = false,
   eyebrow = "Questions",
   heading = "Answers before you ask",
-  subheading = "The things business owners ask us most. Something else on your mind? WhatsApp us — we answer fast.",
+  subheading = "The things business owners ask us most. Something else on your mind? WhatsApp us. A real person answers fast.",
 }: FaqSectionProps) {
   return (
     <section className="bg-background-deep/60 py-24 md:py-32">

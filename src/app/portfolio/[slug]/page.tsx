@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const project = getProject(slug);
   if (!project) return {};
   return buildMetadata({
-    title: `${project.client} — Case Study`,
+    title: `${project.client} Case Study`,
     description: project.summary,
     path: `/portfolio/${project.slug}`,
   });

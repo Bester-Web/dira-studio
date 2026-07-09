@@ -19,7 +19,7 @@ export function FinalCta({
     </>
   ),
   subheading = "Every day without a website that converts is a day of enquiries going to someone else. A 15-minute conversation is all it takes to find out what's possible.",
-  primaryLabel = "Get a free quote",
+  primaryLabel = "Get a quote",
 }: FinalCtaProps) {
   return (
     <section className="relative overflow-hidden py-24 md:py-36">

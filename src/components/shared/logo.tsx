@@ -14,7 +14,7 @@ export function Logo({ className }: LogoProps) {
   return (
     <Link
       href="/"
-      aria-label={`${company.name} — home`}
+      aria-label={`${company.name} home`}
       className={cn(
         "inline-flex items-baseline gap-0.5 font-display text-xl font-bold tracking-tight text-foreground",
         className

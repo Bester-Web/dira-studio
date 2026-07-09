@@ -12,7 +12,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Our Work",
   description:
-    "Case studies from service businesses that turned their websites into their best salesperson — more calls, more WhatsApp enquiries, more booked jobs.",
+    "Case studies from service businesses that turned their websites into their best salesman: more calls, more WhatsApp enquiries, more booked jobs.",
   path: "/portfolio",
 });
 

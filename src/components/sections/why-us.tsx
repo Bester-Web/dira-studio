@@ -13,7 +13,7 @@ export function WhyUs() {
           <SectionHeading
             eyebrow="Why Dira Studio"
             heading="Agencies sell websites. We deliver customers."
-            subheading="The difference shows up in your call log, your WhatsApp inbox and your quote pipeline — not just your screen."
+            subheading="The difference shows up in your call log, your WhatsApp inbox and your quote pipeline. Not just on your screen."
           />
         </Reveal>
 

@@ -19,7 +19,7 @@ interface CtaGroupProps {
  * paths to contact identical everywhere.
  */
 export function CtaGroup({
-  primaryLabel = "Get a free quote",
+  primaryLabel = "Get a quote",
   primaryHref = "/contact",
   whatsapp = true,
   size = "lg",

@@ -12,7 +12,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Industries We Serve",
   description:
-    "Websites for electricians, plumbers, solar installers, law firms, builders and every service business in between — built to generate calls and quote requests.",
+    "Websites for electricians, plumbers, solar installers, law firms, builders and every service business in between. Built to generate calls and quote requests.",
   path: "/industries",
 });
 
@@ -37,7 +37,7 @@ export default function IndustriesPage() {
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
               Whatever you do, your customers follow the same path: search, compare,
               trust, contact. We&apos;ve refined that path for service businesses of
-              every kind — and we keep adding more.
+              every kind, and we keep adding more.
             </p>
           </Reveal>
         </Container>
@@ -47,7 +47,7 @@ export default function IndustriesPage() {
         industries={industries}
         eyebrow="All industries"
         heading="Find your business below"
-        subheading="Don't see your industry? The approach works for any business whose customers search online. Get in touch — the list keeps growing."
+        subheading="Don't see your industry? The approach works for any business whose customers search online. Get in touch. The list keeps growing."
       />
       <Testimonials testimonials={testimonials} />
       <FinalCta

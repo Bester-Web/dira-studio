@@ -122,21 +122,6 @@ export interface PortfolioProject {
   };
 }
 
-export interface PricingTier {
-  id: string;
-  name: string;
-  tagline: string;
-  /** Formatted price, e.g. "R9,500" */
-  price: string;
-  priceNote: string;
-  features: string[];
-  highlighted: boolean;
-  cta: {
-    label: string;
-    href: string;
-  };
-}
-
 export interface Testimonial {
   quote: string;
   author: string;

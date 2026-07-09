@@ -26,7 +26,7 @@ export function ServicesGrid({
           <SectionHeading
             eyebrow="What we do"
             heading="Everything your growth needs. Nothing it doesn't."
-            subheading="Each service exists for one reason: to bring you more customers. Start with what you need today — add more as you grow."
+            subheading="Each service exists for one reason: to bring you more customers. Start with what you need today and add more as you grow."
           />
         </Reveal>
 

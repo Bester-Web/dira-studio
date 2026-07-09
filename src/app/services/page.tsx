@@ -13,7 +13,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Services",
   description:
-    "Website design, redesigns, landing pages, SEO, Google Ads and AI automation for service businesses — every service built to generate more customers.",
+    "Website design, redesigns, landing pages, SEO, Google Ads and AI automation for service businesses. Every service built to generate more customers.",
   path: "/services",
 });
 
@@ -36,7 +36,7 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
-              More customers for your business. Websites, SEO, ads and automation —
+              More customers for your business. Websites, SEO, ads and automation,
               chosen and combined around what will actually move your numbers, not
               what&apos;s easiest to sell.
             </p>
@@ -57,7 +57,7 @@ export default function ServicesPage() {
             <span className="ds-gradient-text"> We&apos;ll tell you honestly</span>
           </>
         }
-        subheading="Send us a message about your business. We'll come back with a straight answer about what will grow it — even if the answer is 'not us'."
+        subheading="Send us a message about your business. We'll come back with a straight answer about what will grow it, even if the answer is 'not us'."
       />
     </>
   );

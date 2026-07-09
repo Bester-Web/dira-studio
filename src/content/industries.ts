@@ -4,8 +4,8 @@ import type { IconName, Industry } from "./types";
    DYNAMIC INDUSTRIES SYSTEM
    ------------------------------------------------------------
    Add an industry with one `defineIndustry({...})` call.
-   Sensible, conversion-focused copy is generated from the trade
-   name automatically; override any field for bespoke copy.
+   Conversion-focused copy is generated from the trade name
+   automatically; override any field for bespoke copy.
    The /industries/[slug] route picks it up with zero code changes.
    ============================================================ */
 
@@ -38,19 +38,19 @@ function defineIndustry(input: IndustryInput): Industry {
     featured,
     hero: overrides.hero ?? {
       headline: `Websites for ${name} that make the phone ring`,
-      subheadline: `Your customers are searching "${searchTerm}" right now. We build websites that put your business in front of them — and turn that visit into a call, a WhatsApp or a quote request.`,
+      subheadline: `Your customers are searching "${searchTerm}" right now. We build websites that put your business in front of them and turn that visit into a call, a WhatsApp or a quote request.`,
     },
     problems: overrides.problems ?? [
       `Customers search "${searchTerm}" and find your competitors first`,
       "Your current website looks dated and undersells the quality of your work",
       "Visitors land on your site but leave without contacting you",
       "You rely on word of mouth, which you can't scale or predict",
-      "Enquiries go unanswered while you're on site, and the job goes elsewhere",
+      "Enquiries sit unanswered while you're on site, and the job goes elsewhere",
     ],
     solutions: overrides.solutions ?? [
       {
         title: "A website that earns trust in seconds",
-        description: `Someone with ${urgentJob} decides in moments whether to trust you. We design your site to look established, professional and worth calling — before they've read a single word.`,
+        description: `Someone with ${urgentJob} decides in moments whether to trust you. We design your site to look established, professional and worth calling before they've read a single word.`,
       },
       {
         title: "Built to convert, not just impress",
@@ -64,14 +64,14 @@ function defineIndustry(input: IndustryInput): Industry {
       {
         title: "Fast on the phones your customers use",
         description:
-          "Most of your visitors are on mobile, often mid-emergency. Your site loads in under two seconds and works flawlessly on every screen.",
+          "Most of your visitors are on mobile, often mid-emergency. Your site loads in under two seconds and works properly on every screen.",
       },
     ],
     benefits: overrides.benefits ?? [
       "More calls from customers ready to book",
-      "More WhatsApp enquiries — the channel South Africans prefer",
+      "More WhatsApp enquiries, the channel South Africans prefer",
       "More quote requests with job details already filled in",
-      "Show up in Google when nearby customers search",
+      "Show up on Google when nearby customers search",
       "A brand that justifies premium rates",
       "Look bigger than competitors twice your size",
     ],
@@ -85,31 +85,31 @@ function defineIndustry(input: IndustryInput): Industry {
       {
         question: `How much does a website for ${lower} cost?`,
         answer:
-          "Our packages start at Starter level for a focused, professional site and scale up depending on pages, features and how aggressively you want to grow. You'll get a fixed quote upfront — no hourly billing, no surprises.",
+          "Every project gets a fixed quote before we start, based on what your business actually needs. No hourly billing and no surprises. Tell us about your business and you'll have a number within a day.",
       },
       {
         question: "How long until my website is live?",
         answer:
-          "Most projects launch within 2–4 weeks. We handle everything — copy, images, structure — so it doesn't depend on you finding time you don't have.",
+          "Most projects launch within 2 to 4 weeks. We handle the copy, images and structure ourselves, so progress never depends on you finding spare time.",
       },
       {
         question: "Will I actually get more enquiries?",
-        answer: `That's the entire point. We don't measure success by how the site looks — we measure it by calls, WhatsApp messages and quote requests. Every design decision is made to turn a visitor into an enquiry for your ${lower.replace(/s$/, "")} business.`,
+        answer: `That's the whole point. We don't measure success by how the site looks. We measure it by calls, WhatsApp messages and quote requests. Every design decision is made to turn a visitor into an enquiry for your ${lower.replace(/s$/, "")} business.`,
       },
       {
         question: "Do you understand my industry?",
-        answer: `We specialise in service businesses. We know how customers choose a ${singular}, what makes them hesitate, and what convinces them to reach out — and we build your site around exactly that.`,
+        answer: `We work with service businesses every day. We know how customers choose a ${singular}, what makes them hesitate, and what convinces them to reach out. Your site gets built around exactly that.`,
       },
     ],
     seo: overrides.seo ?? {
       title: `Website Design for ${name}`,
-      description: `Premium websites for ${lower} that generate more calls, WhatsApp enquiries and quote requests. Look established, get found on Google, win more work.`,
+      description: `Websites for ${lower} that generate more calls, WhatsApp enquiries and quote requests. Look established, get found on Google, win more work.`,
     },
   };
 }
 
 /* ------------------------------------------------------------
-   THE INDUSTRY LIST — add, remove or reorder freely.
+   THE INDUSTRY LIST. Add, remove or reorder freely.
    ------------------------------------------------------------ */
 export const industries: Industry[] = [
   defineIndustry({
@@ -142,7 +142,7 @@ export const industries: Industry[] = [
       hero: {
         headline: "Websites for Solar Installers that turn interest into installations",
         subheadline:
-          "Solar is a big-ticket, high-research purchase. We build websites that educate, build trust and capture quote requests from homeowners who are ready to invest.",
+          "Solar is a big-ticket purchase that people research for months. We build websites that educate, build trust and capture quote requests from homeowners who are ready to invest.",
       },
     },
   }),
@@ -154,6 +154,15 @@ export const industries: Industry[] = [
     featured: true,
     searchTerm: "roof repairs near me",
     urgentJob: "a leaking roof before the weekend storm",
+  }),
+  defineIndustry({
+    slug: "handyman-services",
+    name: "Handyman Services",
+    singular: "handyman",
+    icon: "hammer",
+    featured: true,
+    searchTerm: "handyman near me",
+    urgentJob: "a list of repairs that's been growing for months",
   }),
   defineIndustry({
     slug: "hvac",
@@ -177,7 +186,7 @@ export const industries: Industry[] = [
     slug: "builders",
     name: "Builders",
     singular: "builder",
-    icon: "hammer",
+    icon: "hard-hat",
     featured: true,
     searchTerm: "building contractors near me",
     urgentJob: "a renovation they've postponed for years",
@@ -258,14 +267,6 @@ export const industries: Industry[] = [
     icon: "trending-up",
     featured: false,
     searchTerm: "financial advisor near me",
-  }),
-  defineIndustry({
-    slug: "contractors",
-    name: "Contractors",
-    singular: "contractor",
-    icon: "hard-hat",
-    featured: false,
-    searchTerm: "contractors near me",
   }),
 ];
 
