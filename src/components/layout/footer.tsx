@@ -1,12 +1,8 @@
 import Link from "next/link";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle, MapPin } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Logo } from "@/components/shared/logo";
-import {
-  InstagramIcon,
-  FacebookIcon,
-  LinkedinIcon,
-} from "@/components/shared/social-icons";
+import { InstagramIcon, FacebookIcon } from "@/components/shared/social-icons";
 import {
   footerCompanyNav,
   footerServicesNav,
@@ -20,7 +16,6 @@ import type { NavLink } from "@/content/types";
 const socialIcons: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
   instagram: InstagramIcon,
   facebook: FacebookIcon,
-  linkedin: LinkedinIcon,
 };
 
 function FooterColumn({ title, links }: { title: string; links: NavLink[] }) {
@@ -85,6 +80,10 @@ export function Footer() {
                 <Mail className="size-4" aria-hidden />
                 {company.contact.email}
               </a>
+              <span className="inline-flex items-center gap-2 text-muted">
+                <MapPin className="size-4" aria-hidden />
+                Based in {company.city}
+              </span>
             </div>
             {activeSocials.length > 0 && (
               <div className="mt-6 flex gap-3">

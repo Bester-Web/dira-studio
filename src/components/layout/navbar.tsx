@@ -53,12 +53,17 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-premium",
-        scrolled || open
-          ? "border-b border-border bg-background/85 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+        scrolled ? "pt-2 sm:pt-3" : "pt-3 sm:pt-5"
       )}
     >
-      <Container className="flex h-(--ds-header-height) items-center justify-between">
+      <Container
+        className={cn(
+          "flex h-14 items-center justify-between rounded-pill border px-4 transition-all duration-300 ease-premium sm:h-16 sm:px-6",
+          scrolled || open
+            ? "border-(--ds-glass-border) bg-surface shadow-md backdrop-blur-2xl backdrop-saturate-150"
+            : "border-transparent bg-transparent"
+        )}
+      >
         <Logo />
 
         {/* Desktop nav */}

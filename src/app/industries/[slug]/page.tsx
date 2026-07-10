@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { XCircle, CheckCircle2 } from "lucide-react";
+import { XCircle, CheckCircle2, Phone } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
@@ -22,6 +23,22 @@ import { faqSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
 interface IndustryPageProps {
   params: Promise<{ slug: string }>;
 }
+
+/** Premium photo shown inside the device mockup on each industry hero. */
+const industryHeroImages: Record<string, { src: string; alt: string }> = {
+  electricians: {
+    src: "/images/industries/electrical-hero.jpg",
+    alt: "Professional electrician working on an electrical installation",
+  },
+  plumbers: {
+    src: "/images/industries/plumbing-hero.jpg",
+    alt: "Professional plumbing installation and pipework",
+  },
+  "solar-installers": {
+    src: "/images/industries/solar-hero.jpg",
+    alt: "Solar panel installation under a clear sky",
+  },
+};
 
 export function generateStaticParams() {
   return getAllIndustrySlugs().map((slug) => ({ slug }));
@@ -46,6 +63,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
   const industryServices = services.filter((s) => industry.services.includes(s.slug));
   const industryProjects = portfolio.filter((p) => p.industry === industry.name);
   const industryTestimonials = testimonials.filter((t) => t.industry === industry.name);
+  const heroImage = industryHeroImages[industry.slug];
 
   return (
     <>
@@ -68,27 +86,80 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
 
       {/* Hero */}
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="ds-glow -top-32 left-1/2 h-96 w-[44rem] -translate-x-1/2" aria-hidden />
-        <Container className="relative flex flex-col items-center text-center">
-          <Reveal>
-            <Badge variant="accent" className="mb-6">
-              <Icon name={industry.icon} className="size-3.5" />
-              For {industry.name}
-            </Badge>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="max-w-4xl font-display text-4xl font-bold text-foreground sm:text-5xl md:text-6xl">
-              {industry.hero.headline}
-            </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
-              {industry.hero.subheadline}
-            </p>
-          </Reveal>
-          <Reveal delay={0.24}>
-            <CtaGroup className="mt-10" size="xl" />
-          </Reveal>
+        <div className="ds-glow -top-32 left-[10%] h-96 w-[40rem]" aria-hidden />
+        <Container className="relative">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            {/* Copy */}
+            <div className="flex flex-col items-start text-left">
+              <Reveal>
+                <Badge variant="accent" className="mb-6">
+                  <Icon name={industry.icon} className="size-3.5" />
+                  For {industry.name}
+                </Badge>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <h1 className="font-display text-4xl font-bold text-foreground sm:text-5xl lg:text-[3.4rem]">
+                  {industry.hero.headline}
+                </h1>
+              </Reveal>
+              <Reveal delay={0.16}>
+                <p className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
+                  {industry.hero.subheadline}
+                </p>
+              </Reveal>
+              <Reveal delay={0.24}>
+                <CtaGroup className="mt-10 justify-start" size="xl" />
+              </Reveal>
+            </div>
+
+            {/* Device mockup with industry photo inside the screen */}
+            {heroImage && (
+              <Reveal delay={0.16}>
+                <div className="overflow-hidden rounded-xl border border-border-strong bg-ink shadow-lg">
+                  {/* Browser bar */}
+                  <div className="flex items-center gap-1.5 px-4 py-3">
+                    <span className="size-2.5 rounded-full bg-white/25" />
+                    <span className="size-2.5 rounded-full bg-white/25" />
+                    <span className="size-2.5 rounded-full bg-white/25" />
+                    <span className="ml-3 rounded-pill bg-white/10 px-3 py-0.5 text-[11px] text-white/50">
+                      your-{industry.singular.replace(/\s+/g, "")}-business.co.za
+                    </span>
+                  </div>
+                  {/* Screen: photo + dark overlay + overlaid site UI */}
+                  <div className="relative aspect-[16/11]">
+                    <Image
+                      src={heroImage.src}
+                      alt={heroImage.alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 45vw"
+                      className="object-cover"
+                      priority
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, rgba(15,11,5,0.45) 0%, rgba(15,11,5,0.25) 45%, rgba(15,11,5,0.85) 100%)",
+                      }}
+                    />
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
+                      <span className="flex items-center gap-1.5 text-xs font-bold tracking-widest text-white uppercase">
+                        <Icon name={industry.icon} className="size-4 text-accent-soft" />
+                        {industry.name}
+                      </span>
+                      <p className="mt-2 max-w-sm font-display text-xl font-semibold text-white sm:text-2xl">
+                        Trusted local {industry.singular}s, one tap away.
+                      </p>
+                      <span className="mt-4 flex w-fit items-center gap-2 rounded-pill bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground">
+                        <Phone className="size-4" aria-hidden />
+                        Get a Quote
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            )}
+          </div>
         </Container>
       </section>
 

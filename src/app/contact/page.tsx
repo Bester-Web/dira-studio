@@ -4,6 +4,7 @@ import { Container } from "@/components/shared/container";
 import { Reveal } from "@/components/shared/reveal";
 import { Badge } from "@/components/ui/badge";
 import { ContactForm } from "@/components/forms/contact-form";
+import { CalendlyEmbed } from "@/components/forms/calendly-embed";
 import { company, whatsappLink, phoneLink, emailLink } from "@/content/company";
 import { buildMetadata } from "@/lib/seo";
 
@@ -115,20 +116,43 @@ export default function ContactPage() {
                 </div>
               </Reveal>
 
-              {/* Map placeholder. Swap for an embed when the office address is public */}
+              {/* Location */}
               <Reveal delay={0.36}>
                 <div className="ds-card flex min-h-52 flex-1 flex-col items-center justify-center gap-3 p-6 text-center">
                   <MapPin className="size-7 text-accent" aria-hidden />
                   <p className="font-display text-sm font-semibold text-foreground">
-                    {company.city}, {company.country}
+                    Based in {company.city}
                   </p>
                   <p className="text-xs text-faint">
-                    Serving service businesses nationwide
+                    Serving electrical, plumbing and solar businesses across South Africa
                   </p>
                 </div>
               </Reveal>
             </div>
           </div>
+        </Container>
+      </section>
+
+      {/* Calendly strategy call scheduler */}
+      <section className="pb-24 md:pb-32">
+        <Container>
+          <Reveal>
+            <div className="mb-10 flex flex-col items-center gap-4 text-center">
+              <span className="ds-eyebrow">Book a strategy call</span>
+              <h2 className="max-w-2xl font-display text-3xl font-semibold text-foreground sm:text-4xl">
+                Pick a time that suits you
+              </h2>
+              <p className="max-w-xl text-base leading-relaxed text-muted">
+                Twenty minutes, no pressure. We&apos;ll look at your business and map
+                out exactly how to get you found and winning more work.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="ds-card overflow-hidden p-2 sm:p-3">
+              <CalendlyEmbed url={company.contact.calendly} />
+            </div>
+          </Reveal>
         </Container>
       </section>
     </>

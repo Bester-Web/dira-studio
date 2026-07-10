@@ -10,24 +10,26 @@ export const company = {
     "Dira Studio builds premium websites for South African electrical, plumbing and solar companies. Website design, SEO, lead generation and hosting that turn searches into booked jobs.",
   foundedYear: 2023,
   country: "South Africa",
-  city: "Cape Town",
+  city: "Polokwane",
   address: {
     street: "", // e.g. "12 Loop Street"
     suburb: "",
-    city: "Cape Town",
-    province: "Western Cape",
+    city: "Polokwane",
+    province: "Limpopo",
     postalCode: "",
     country: "ZA",
   },
   contact: {
     email: "hello@dirastudio.co.za",
     /** Display format */
-    phone: "+27 82 000 0000",
+    phone: "065 921 0078",
     /** tel: link format, digits only with country code */
-    phoneHref: "+27820000000",
+    phoneHref: "+27659210078",
     /** WhatsApp number, digits only with country code, no plus */
-    whatsapp: "27820000000",
-    whatsappMessage: "Hi Dira Studio! I'd like to chat about a website for my business.",
+    whatsapp: "27687500349",
+    whatsappMessage: "Hi Dira Studio!",
+    /** Calendly scheduling link for the strategy call */
+    calendly: "https://calendly.com/besterdeve/30min",
   },
   hours: "Mon to Fri, 08:00 to 17:00 SAST",
 } as const;

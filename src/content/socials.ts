@@ -7,17 +7,12 @@ export const socials: SocialLink[] = [
   {
     platform: "instagram",
     label: "Instagram",
-    href: "https://instagram.com/dirastudio",
+    href: "https://www.instagram.com/dirastudio.co.za/",
   },
   {
     platform: "facebook",
     label: "Facebook",
-    href: "https://facebook.com/dirastudio",
-  },
-  {
-    platform: "linkedin",
-    label: "LinkedIn",
-    href: "https://linkedin.com/company/dirastudio",
+    href: "https://web.facebook.com/profile.php?id=61591723865712",
   },
 ];
 
