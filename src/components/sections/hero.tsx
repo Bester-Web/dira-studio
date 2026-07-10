@@ -143,7 +143,12 @@ export function Hero() {
   // Derived from the lid so the screen always powers on as it opens
   const screenPower = useTransform(lidAngle, [-38, -4], [0, 1]);
   const laptopY = useTransform(scrollYProgress, [0, 0.55], [40, 0]);
-  const hintOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
+  // NOTE: opacity values are derived from transform-driven values;
+  // standalone scroll-linked opacities stall in this framer/React combo.
+  const hintOpacity = useTransform(lidAngle, [-86, -62], [1, 0]);
+  // Copy settles back as the reveal completes, keeping focus on the screen
+  const copyY = useTransform(scrollYProgress, [0.55, 0.85], [0, -24]);
+  const copyOpacity = useTransform(copyY, [0, -24], [1, 0.35]);
 
   const animated = isDesktop && !reduceMotion;
   const heroSite = showcaseSites[0];
@@ -161,7 +166,9 @@ export function Hero() {
 
         <Container className="relative py-16 lg:py-0">
           <div className="grid items-center gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10">
-            <HeroCopy />
+            <motion.div style={animated ? { opacity: copyOpacity, y: copyY } : undefined}>
+              <HeroCopy />
+            </motion.div>
 
             <div className="relative">
               {animated ? (

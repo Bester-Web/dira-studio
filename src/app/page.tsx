@@ -5,6 +5,7 @@ import { PainPoints } from "@/components/sections/pain-points";
 import { ServicesSection } from "@/components/sections/services-section";
 import { IndustriesPanorama } from "@/components/sections/industries-panorama";
 import { ResultsSection } from "@/components/sections/results-section";
+import { Manifesto } from "@/components/sections/manifesto";
 import { Testimonials } from "@/components/sections/testimonials";
 import { FounderSection } from "@/components/sections/founder-section";
 import { ProcessTimeline } from "@/components/sections/process-timeline";
@@ -35,6 +36,7 @@ export default function HomePage() {
       <ServicesSection />
       <IndustriesPanorama />
       <ResultsSection />
+      <Manifesto />
 
       {/* The lighting changes */}
       <ZoneBridge />
