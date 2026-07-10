@@ -15,8 +15,8 @@
   --ds-bg: #f6f1e4;
   --ds-bg-deep: #ede5d1;
   --ds-bg-elevated: #fcf9f1;
-  --ds-surface: rgba(255, 255, 255, 0.55);
-  --ds-surface-hover: rgba(255, 255, 255, 0.78);
+  --ds-surface: rgba(255, 255, 255, 0.42);
+  --ds-surface-hover: rgba(255, 255, 255, 0.62);
 
   /* ---- Colour: content (warm ink) ---- */
   --ds-foreground: #221c10;
@@ -61,7 +61,7 @@
   --ds-shadow-accent-lg: 0 16px 44px rgba(33, 27, 16, 0.38);
 
   /* ---- Liquid glass ---- */
-  --ds-glass-blur: 18px;
+  --ds-glass-blur: 26px;
 
   /* ---- Motion ---- */
   --ds-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -188,9 +188,10 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(44rem 30rem at 10% 5%, rgba(208, 186, 134, 0.28), transparent 65%),
-    radial-gradient(40rem 28rem at 92% 25%, rgba(224, 202, 152, 0.22), transparent 65%),
-    radial-gradient(48rem 32rem at 50% 100%, rgba(196, 172, 118, 0.25), transparent 70%);
+    radial-gradient(44rem 30rem at 10% 5%, rgba(202, 172, 106, 0.4), transparent 65%),
+    radial-gradient(40rem 28rem at 92% 25%, rgba(226, 196, 130, 0.34), transparent 65%),
+    radial-gradient(36rem 26rem at 30% 60%, rgba(214, 186, 122, 0.24), transparent 65%),
+    radial-gradient(48rem 32rem at 55% 100%, rgba(190, 160, 96, 0.35), transparent 70%);
 }
 
 ::selection {
