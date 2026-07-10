@@ -35,9 +35,9 @@ export default function IndustriesPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
-              Whatever you do, your customers follow the same path: search, compare,
-              trust, contact. We&apos;ve refined that path for service businesses of
-              every kind, and we keep adding more.
+              Electrical, plumbing and solar. That&apos;s all we do, and that focus
+              is exactly why our websites win. We know how your customers search,
+              what makes them hesitate, and what makes them call.
             </p>
           </Reveal>
         </Container>
@@ -47,7 +47,7 @@ export default function IndustriesPage() {
         industries={industries}
         eyebrow="All industries"
         heading="Find your business below"
-        subheading="Don't see your industry? The approach works for any business whose customers search online. Get in touch. The list keeps growing."
+        subheading="Pick your trade below to see exactly how we help businesses like yours get found and win more work."
       />
       <Testimonials testimonials={testimonials} />
       <FinalCta

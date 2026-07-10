@@ -94,6 +94,7 @@ const iconMap: Record<IconName, LucideIcon> = {
 interface IconProps {
   name: IconName;
   className?: string;
+  style?: React.CSSProperties;
   "aria-hidden"?: boolean;
 }
 

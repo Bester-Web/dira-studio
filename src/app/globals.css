@@ -2,63 +2,66 @@
 
 /* ============================================================
    DIRA STUDIO — DESIGN SYSTEM
-   Light khaki, liquid glass.
-   Single source of truth for every visual token.
-   Never hardcode colours, radii, shadows or timings in components.
+   Classical luxury. Warm ivory to deep bronze-black.
+   Liquid glass surfaces, serif display typography.
+
+   The page journeys from light to dark as you scroll:
+   sections inside `.zone-dark` automatically flip their
+   tokens, so components never branch on theme.
    ============================================================ */
 
 :root {
-  /* ---- Colour: surfaces (warm cream and sand) ---- */
-  --ds-bg: #f5f1e7;
-  --ds-bg-deep: #ece5d6;
-  --ds-bg-elevated: #fbf9f3;
+  /* ---- Colour: light zone surfaces (ivory / travertine) ---- */
+  --ds-bg: #f6f1e4;
+  --ds-bg-deep: #ede5d1;
+  --ds-bg-elevated: #fcf9f1;
   --ds-surface: rgba(255, 255, 255, 0.55);
-  --ds-surface-hover: rgba(255, 255, 255, 0.75);
+  --ds-surface-hover: rgba(255, 255, 255, 0.78);
 
   /* ---- Colour: content (warm ink) ---- */
-  --ds-foreground: #262115;
-  --ds-muted: #6e6551;
-  --ds-muted-strong: #514935;
-  --ds-faint: #9a9077;
+  --ds-foreground: #221c10;
+  --ds-muted: #6d6450;
+  --ds-muted-strong: #4d4432;
+  --ds-faint: #99906f;
 
-  /* ---- Colour: brand (khaki bronze) ---- */
-  --ds-accent: #806b3f;
-  --ds-accent-soft: #8f7947;
-  --ds-accent-glow: rgba(160, 138, 87, 0.28);
+  /* ---- Colour: brand (bronze / soft gold) ---- */
+  --ds-accent: #8a6f3c;
+  --ds-accent-soft: #a08549;
+  --ds-accent-glow: rgba(178, 148, 85, 0.3);
   --ds-accent-foreground: #ffffff;
 
-  /* ---- Colour: ink (primary buttons, strong elements) ---- */
-  --ds-ink: #292315;
-  --ds-ink-foreground: #f7f3e9;
+  /* ---- Colour: ink (primary buttons) ---- */
+  --ds-ink: #211b10;
+  --ds-ink-foreground: #f6efdd;
 
   /* ---- Colour: semantic ---- */
   --ds-whatsapp: #1da851;
-  --ds-success: #806b3f;
-  --ds-destructive: #b3402f;
+  --ds-success: #8a6f3c;
+  --ds-destructive: #a63d2c;
 
   /* ---- Borders ---- */
-  --ds-border: rgba(74, 62, 36, 0.14);
-  --ds-border-strong: rgba(74, 62, 36, 0.26);
+  --ds-border: rgba(74, 60, 30, 0.14);
+  --ds-border-strong: rgba(74, 60, 30, 0.26);
   --ds-glass-border: rgba(255, 255, 255, 0.65);
-  --ds-ring: #806b3f;
+  --ds-ring: #8a6f3c;
 
   /* ---- Radius scale ---- */
   --ds-radius-sm: 0.5rem;
   --ds-radius-md: 0.75rem;
   --ds-radius-lg: 1rem;
   --ds-radius-xl: 1.25rem;
-  --ds-radius-2xl: 1.5rem;
+  --ds-radius-2xl: 1.75rem;
   --ds-radius-pill: 999px;
 
   /* ---- Elevation (warm shadows) ---- */
-  --ds-shadow-sm: 0 1px 2px rgba(80, 65, 35, 0.08);
-  --ds-shadow-md: 0 12px 32px rgba(80, 65, 35, 0.12);
-  --ds-shadow-lg: 0 32px 80px rgba(80, 65, 35, 0.16);
-  --ds-shadow-accent: 0 8px 28px rgba(41, 35, 21, 0.22);
-  --ds-shadow-accent-lg: 0 14px 40px rgba(41, 35, 21, 0.3);
+  --ds-shadow-sm: 0 1px 2px rgba(70, 55, 25, 0.08);
+  --ds-shadow-md: 0 12px 32px rgba(70, 55, 25, 0.13);
+  --ds-shadow-lg: 0 32px 80px rgba(70, 55, 25, 0.18);
+  --ds-shadow-accent: 0 10px 30px rgba(33, 27, 16, 0.28);
+  --ds-shadow-accent-lg: 0 16px 44px rgba(33, 27, 16, 0.38);
 
   /* ---- Liquid glass ---- */
-  --ds-glass-blur: 16px;
+  --ds-glass-blur: 18px;
 
   /* ---- Motion ---- */
   --ds-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -67,9 +70,46 @@
   --ds-duration-slow: 600ms;
 
   /* ---- Layout ---- */
-  --ds-container: 76rem; /* 1216px */
+  --ds-container: 80rem; /* 1280px */
   --ds-container-narrow: 46rem;
-  --ds-header-height: 4.5rem;
+  --ds-header-height: 4.75rem;
+}
+
+/* ---- Dark zone: the lower half of the journey ----
+   Wrap sections in .zone-dark and every token-driven
+   component flips to warm candlelit dark automatically. */
+.zone-dark {
+  --ds-bg: #16110a;
+  --ds-bg-deep: #100c06;
+  --ds-bg-elevated: #221b10;
+  --ds-surface: rgba(255, 248, 230, 0.06);
+  --ds-surface-hover: rgba(255, 248, 230, 0.1);
+
+  --ds-foreground: #f3ecda;
+  --ds-muted: #b3a888;
+  --ds-muted-strong: #d4c9a8;
+  --ds-faint: #857a5c;
+
+  --ds-accent: #c8a96a;
+  --ds-accent-soft: #d9bd82;
+  --ds-accent-glow: rgba(200, 169, 106, 0.22);
+  --ds-accent-foreground: #1b150a;
+
+  --ds-ink: #c8a96a;
+  --ds-ink-foreground: #1b150a;
+
+  --ds-border: rgba(243, 236, 218, 0.12);
+  --ds-border-strong: rgba(243, 236, 218, 0.22);
+  --ds-glass-border: rgba(243, 236, 218, 0.16);
+  --ds-ring: #d9bd82;
+
+  --ds-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --ds-shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --ds-shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.55);
+  --ds-shadow-accent: 0 10px 34px rgba(200, 169, 106, 0.25);
+  --ds-shadow-accent-lg: 0 16px 48px rgba(200, 169, 106, 0.35);
+
+  color: var(--ds-foreground);
 }
 
 @theme inline {
@@ -96,7 +136,7 @@
   --color-ring: var(--ds-ring);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
 
   --radius-sm: var(--ds-radius-sm);
   --radius-md: var(--ds-radius-md);
@@ -140,7 +180,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Ambient warm blobs behind the glass layers */
+/* Ambient warm light behind the glass layers */
 body::before {
   content: "";
   position: fixed;
@@ -148,9 +188,9 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(40rem 28rem at 12% 8%, rgba(196, 176, 128, 0.3), transparent 65%),
-    radial-gradient(36rem 26rem at 88% 30%, rgba(214, 196, 152, 0.26), transparent 65%),
-    radial-gradient(44rem 30rem at 50% 95%, rgba(226, 212, 176, 0.32), transparent 70%);
+    radial-gradient(44rem 30rem at 10% 5%, rgba(208, 186, 134, 0.28), transparent 65%),
+    radial-gradient(40rem 28rem at 92% 25%, rgba(224, 202, 152, 0.22), transparent 65%),
+    radial-gradient(48rem 32rem at 50% 100%, rgba(196, 172, 118, 0.25), transparent 70%);
 }
 
 ::selection {
@@ -158,11 +198,11 @@ body::before {
   color: var(--ds-accent-foreground);
 }
 
-/* ---- Typography rhythm ---- */
+/* ---- Typography rhythm: classical serif display ---- */
 h1, h2, h3, h4, h5 {
-  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  font-family: var(--font-playfair), ui-serif, Georgia, serif;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
   text-wrap: balance;
 }
 
@@ -177,7 +217,7 @@ p {
   border-radius: var(--ds-radius-sm);
 }
 
-/* ---- Utility: ambient glow used behind heroes and CTAs ---- */
+/* ---- Utility: ambient glow ---- */
 .ds-glow {
   position: absolute;
   border-radius: 50%;
@@ -189,11 +229,11 @@ p {
 /* ---- Utility: liquid glass card ---- */
 .ds-card {
   background-color: var(--ds-surface);
-  backdrop-filter: blur(var(--ds-glass-blur)) saturate(140%);
-  -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(140%);
+  backdrop-filter: blur(var(--ds-glass-blur)) saturate(135%);
+  -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(135%);
   border: 1px solid var(--ds-glass-border);
   border-radius: var(--ds-radius-xl);
-  box-shadow: var(--ds-shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: var(--ds-shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   transition:
     border-color var(--ds-duration) var(--ds-ease),
     background-color var(--ds-duration) var(--ds-ease),
@@ -201,18 +241,48 @@ p {
     box-shadow var(--ds-duration) var(--ds-ease);
 }
 
+.zone-dark .ds-card {
+  box-shadow: var(--ds-shadow-sm), inset 0 1px 0 rgba(255, 248, 230, 0.08);
+}
+
 .ds-card-interactive:hover {
   background-color: var(--ds-surface-hover);
   transform: translateY(-4px);
-  box-shadow: var(--ds-shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: var(--ds-shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-/* ---- Utility: gradient text for key phrases ---- */
+/* ---- Utility: gradient text (bronze to gold) ---- */
 .ds-gradient-text {
-  background: linear-gradient(120deg, #6e5c33, var(--ds-accent) 55%, #a98f56);
+  background: linear-gradient(120deg, #7d6233, var(--ds-accent) 50%, #c2a15e);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.zone-dark .ds-gradient-text {
+  background: linear-gradient(120deg, #b6975a, #d9bd82 50%, #eeda9f);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ---- Utility: classical arch backdrop (drawn, never photographic) ---- */
+.ds-arch {
+  position: absolute;
+  pointer-events: none;
+  border: 1px solid var(--ds-border);
+  border-bottom: none;
+  border-radius: 999px 999px 0 0;
+  opacity: 0.5;
+}
+
+/* ---- Utility: eyebrow label ---- */
+.ds-eyebrow {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ds-accent);
 }
 
 /* ---- Reduced motion ---- */

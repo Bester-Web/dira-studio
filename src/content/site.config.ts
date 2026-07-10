@@ -8,24 +8,25 @@ export const siteConfig = {
   /** Canonical production URL. Update when the domain is live. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dirastudio.co.za",
   title: {
-    default: `${company.name} | Websites That Win You Customers`,
+    default: `${company.name} | Website Design for Electrical, Plumbing & Solar Companies`,
     /** Used by Next.js title templates: "%s | Dira Studio" */
     template: `%s | ${company.name}`,
   },
   description:
-    "We build websites for service businesses that turn visitors into calls, WhatsApp enquiries and quote requests. More customers, not just a prettier website.",
+    "Premium website design, SEO, lead generation and web hosting for South African electrical, plumbing and solar companies. Get found first and win more work.",
   keywords: [
-    "web design agency South Africa",
-    "websites for service businesses",
-    "lead generation websites",
-    "website design Cape Town",
-    "conversion focused web design",
+    "website design South Africa",
+    "SEO South Africa",
+    "electrical website design",
+    "plumbing website design",
+    "solar website design",
+    "lead generation South Africa",
+    "web hosting South Africa",
   ],
   locale: "en_ZA",
   /** Feature flags. Flip without touching components. */
   features: {
     whatsappFloatingButton: true,
     portfolioSection: true,
-    laptopShowcase: true,
   },
 } as const;

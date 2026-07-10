@@ -5,9 +5,9 @@
 export const company = {
   name: "Dira Studio",
   legalName: "Dira Studio (Pty) Ltd",
-  tagline: "Websites that win you customers",
+  tagline: "Premium websites. More leads. Real growth.",
   description:
-    "Dira Studio builds websites for service businesses that turn visitors into calls, WhatsApp messages and quote requests.",
+    "Dira Studio builds premium websites for South African electrical, plumbing and solar companies. Website design, SEO, lead generation and hosting that turn searches into booked jobs.",
   foundedYear: 2023,
   country: "South Africa",
   city: "Cape Town",

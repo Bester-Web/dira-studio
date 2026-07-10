@@ -36,9 +36,9 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
-              More customers for your business. Websites, SEO, ads and automation,
-              chosen and combined around what will actually move your numbers, not
-              what&apos;s easiest to sell.
+              More customers for your business. Premium websites, SEO, lead
+              generation and hosting, combined around what will actually move your
+              numbers, not what&apos;s easiest to sell.
             </p>
           </Reveal>
         </Container>

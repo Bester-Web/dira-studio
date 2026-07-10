@@ -74,20 +74,20 @@ export const valueProps: ValueProp[] = [
 
 /** Headline stats used for social proof. Update as real numbers accumulate. */
 export const stats: Stat[] = [
-  { value: "3.2x", label: "average increase in enquiries" },
+  { value: "3.2x", label: "average increase in leads" },
   { value: "<2s", label: "mobile load time on every site" },
   { value: "2-4", label: "weeks from kickoff to launch" },
-  { value: "100%", label: "fixed quotes, zero surprises" },
+  { value: "4.9/5", label: "average client rating" },
 ];
 
 /**
  * "Trusted by" strip. Text-based logos until real client marks are added.
  */
 export const trustedBy = [
-  "Volt Electrical",
-  "AquaFlow Plumbing",
-  "Helios Solar",
-  "Sentinel Security",
-  "Oakline Builders",
-  "ClearView Roofing",
+  "Maxwell Electrical",
+  "Flowcore Plumbing",
+  "Solaris Energy",
+  "Brightspark Electrical",
+  "Trueflow Plumbing",
+  "SunMaster Solar",
 ];

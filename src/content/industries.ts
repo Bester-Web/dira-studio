@@ -1,276 +1,247 @@
-import type { IconName, Industry } from "./types";
+import type { Industry } from "./types";
 
 /* ============================================================
-   DYNAMIC INDUSTRIES SYSTEM
-   ------------------------------------------------------------
-   Add an industry with one `defineIndustry({...})` call.
-   Conversion-focused copy is generated from the trade name
-   automatically; override any field for bespoke copy.
-   The /industries/[slug] route picks it up with zero code changes.
+   THE THREE INDUSTRIES WE SERVE
+   Electrical. Plumbing. Solar. Nothing else.
+   Each entry drives /industries/[slug] and the homepage
+   horizontal storytelling section.
    ============================================================ */
 
-interface IndustryInput {
-  slug: string;
-  name: string;
-  singular: string;
-  icon: IconName;
-  featured?: boolean;
-  /** What customers search for, e.g. "electrician near me" */
-  searchTerm?: string;
-  /** The urgent job customers need, e.g. "a tripping breaker at 9pm" */
-  urgentJob?: string;
-  /** Override any generated field for fully bespoke copy */
-  overrides?: Partial<Omit<Industry, "slug" | "name" | "singular" | "icon" | "featured">>;
-}
-
-function defineIndustry(input: IndustryInput): Industry {
-  const { slug, name, singular, icon, featured = false, overrides = {} } = input;
-  const searchTerm = input.searchTerm ?? `${singular} near me`;
-  const urgentJob = input.urgentJob ?? "an urgent job";
-
-  const lower = name.toLowerCase();
-
-  return {
-    slug,
-    name,
-    singular,
-    icon,
-    featured,
-    hero: overrides.hero ?? {
-      headline: `Websites for ${name} that make the phone ring`,
-      subheadline: `Your customers are searching "${searchTerm}" right now. We build websites that put your business in front of them and turn that visit into a call, a WhatsApp or a quote request.`,
+export const industries: Industry[] = [
+  {
+    slug: "electricians",
+    name: "Electrical Contractors",
+    singular: "electrician",
+    icon: "zap",
+    featured: true,
+    hero: {
+      headline: "Websites for electrical contractors that make the phone ring",
+      subheadline:
+        "Someone's power just tripped and they're searching \"electrician near me\" right now. The contractor they call is the one who shows up first and looks like a professional. We make sure that's you.",
     },
-    problems: overrides.problems ?? [
-      `Customers search "${searchTerm}" and find your competitors first`,
-      "Your current website looks dated and undersells the quality of your work",
-      "Visitors land on your site but leave without contacting you",
-      "You rely on word of mouth, which you can't scale or predict",
-      "Enquiries sit unanswered while you're on site, and the job goes elsewhere",
+    problems: [
+      "Customers search \"electrician near me\" and find your competitors first",
+      "Your website looks outdated next to the quality of your actual work",
+      "Emergency callers can't find your number fast enough and dial the next result",
+      "Word of mouth keeps you busy some months and quiet others",
+      "Bigger companies win the compliance and contract work because they look bigger online",
     ],
-    solutions: overrides.solutions ?? [
+    solutions: [
       {
-        title: "A website that earns trust in seconds",
-        description: `Someone with ${urgentJob} decides in moments whether to trust you. We design your site to look established, professional and worth calling before they've read a single word.`,
-      },
-      {
-        title: "Built to convert, not just impress",
+        title: "Built for the emergency search",
         description:
-          "Click-to-call, WhatsApp and quote request buttons exactly where visitors expect them. Social proof, service areas and guarantees placed to remove doubt at every step.",
+          "A tripped DB board at 9pm is a customer who decides in seconds. Your number, WhatsApp and call-out promise sit right at the top of every page.",
       },
       {
-        title: "Found by local customers",
-        description: `We structure your site around the areas you serve and the services you offer, so Google shows you to people searching for ${lower} nearby.`,
-      },
-      {
-        title: "Fast on the phones your customers use",
+        title: "Credentials where they count",
         description:
-          "Most of your visitors are on mobile, often mid-emergency. Your site loads in under two seconds and works properly on every screen.",
+          "Registration, compliance certificates, guarantees and real project photos placed exactly where nervous customers look for reasons to trust you.",
+      },
+      {
+        title: "Suburb by suburb visibility",
+        description:
+          "Service pages for every area you cover, so Google shows you to the customers you actually want, in the areas you actually work.",
+      },
+      {
+        title: "Quote requests with the details filled in",
+        description:
+          "Forms that ask the right questions upfront, so you quote faster and stop driving out for jobs that were never serious.",
       },
     ],
-    benefits: overrides.benefits ?? [
-      "More calls from customers ready to book",
-      "More WhatsApp enquiries, the channel South Africans prefer",
-      "More quote requests with job details already filled in",
-      "Show up on Google when nearby customers search",
-      "A brand that justifies premium rates",
-      "Look bigger than competitors twice your size",
+    benefits: [
+      "More emergency call-outs from your area",
+      "More installation and COC work booked in advance",
+      "A brand that justifies professional rates",
+      "Show up in the Google map results for your suburbs",
+      "Look established next to any competitor",
+      "Leads tracked so you know what your marketing earns",
     ],
-    services: overrides.services ?? [
-      "website-design",
-      "technical-seo",
-      "google-business-profile",
-      "google-ads",
-    ],
-    faqs: overrides.faqs ?? [
+    services: ["website-design", "technical-seo", "lead-generation", "hosting"],
+    faqs: [
       {
-        question: `How much does a website for ${lower} cost?`,
+        question: "How much does a website for an electrical business cost?",
         answer:
-          "Every project gets a fixed quote before we start, based on what your business actually needs. No hourly billing and no surprises. Tell us about your business and you'll have a number within a day.",
+          "Every project gets a fixed quote before we start, based on what your business needs. No hourly billing and no surprises. Book a strategy call and you'll have a clear number the same week.",
+      },
+      {
+        question: "Can you help me rank for emergency searches?",
+        answer:
+          "Yes. Emergency searches are won with local SEO, fast pages and a properly managed Google Business Profile. That combination is exactly what we build for electrical contractors.",
       },
       {
         question: "How long until my website is live?",
         answer:
-          "Most projects launch within 2 to 4 weeks. We handle the copy, images and structure ourselves, so progress never depends on you finding spare time.",
+          "Most electrical contractor sites launch within 2 to 4 weeks. We write the copy and source the imagery ourselves, so progress never waits on you.",
       },
       {
-        question: "Will I actually get more enquiries?",
-        answer: `That's the whole point. We don't measure success by how the site looks. We measure it by calls, WhatsApp messages and quote requests. Every design decision is made to turn a visitor into an enquiry for your ${lower.replace(/s$/, "")} business.`,
-      },
-      {
-        question: "Do you understand my industry?",
-        answer: `We work with service businesses every day. We know how customers choose a ${singular}, what makes them hesitate, and what convinces them to reach out. Your site gets built around exactly that.`,
+        question: "Will I actually get more work from this?",
+        answer:
+          "That's the only measure we care about. We track calls, WhatsApp messages and quote requests, so you'll see exactly what the website produces.",
       },
     ],
-    seo: overrides.seo ?? {
-      title: `Website Design for ${name}`,
-      description: `Websites for ${lower} that generate more calls, WhatsApp enquiries and quote requests. Look established, get found on Google, win more work.`,
+    seo: {
+      title: "Electrical Website Design South Africa",
+      description:
+        "Premium website design, SEO and lead generation for South African electrical contractors. Get found first, win more call-outs and grow your business.",
     },
-  };
-}
-
-/* ------------------------------------------------------------
-   THE INDUSTRY LIST. Add, remove or reorder freely.
-   ------------------------------------------------------------ */
-export const industries: Industry[] = [
-  defineIndustry({
-    slug: "electricians",
-    name: "Electricians",
-    singular: "electrician",
-    icon: "zap",
-    featured: true,
-    searchTerm: "electrician near me",
-    urgentJob: "a tripping breaker at 9pm",
-  }),
-  defineIndustry({
+  },
+  {
     slug: "plumbers",
-    name: "Plumbers",
+    name: "Plumbing Companies",
     singular: "plumber",
     icon: "wrench",
     featured: true,
-    searchTerm: "emergency plumber",
-    urgentJob: "a burst geyser flooding the ceiling",
-  }),
-  defineIndustry({
+    hero: {
+      headline: "Websites for plumbing companies that turn emergencies into bookings",
+      subheadline:
+        "A burst geyser doesn't wait for business hours. When someone's standing in rising water searching \"emergency plumber\", we make sure your number is the one they tap.",
+    },
+    problems: [
+      "Emergency searchers find your competitors before they find you",
+      "Your current site is slow, and someone with a flooding kitchen won't wait for it",
+      "Callers can't see your call-out area or rates, so they phone around",
+      "You spend on ads but can't tell which jobs they actually brought in",
+      "Insurance and body corporate work goes to companies that look more established",
+    ],
+    solutions: [
+      {
+        title: "The three second rule",
+        description:
+          "Your site loads instantly and shows one thing first: a call button. Everything about the design assumes your customer is in a hurry.",
+      },
+      {
+        title: "Trust before the callout",
+        description:
+          "Upfront call-out info, guarantees, real reviews and photos of clean workmanship. Customers book with confidence instead of phoning four plumbers.",
+      },
+      {
+        title: "Own your service areas",
+        description:
+          "Suburb-level pages and a managed Google Business Profile put you in the map results where emergency decisions are made.",
+      },
+      {
+        title: "Every lead accounted for",
+        description:
+          "Call tracking and enquiry reporting show exactly which jobs your website produced. No more guessing whether marketing works.",
+      },
+    ],
+    benefits: [
+      "More emergency calls at better rates",
+      "More geyser and installation work booked ahead",
+      "Fewer time-wasters, better qualified enquiries",
+      "Win the map results in your service areas",
+      "A brand insurers and body corporates take seriously",
+      "Marketing you can measure in booked jobs",
+    ],
+    services: ["website-design", "technical-seo", "lead-generation", "hosting"],
+    faqs: [
+      {
+        question: "How much does a plumbing website cost?",
+        answer:
+          "You get a fixed quote before we start, sized to your business. Book a strategy call, tell us about your company, and you'll have a clear number within days.",
+      },
+      {
+        question: "Can customers book jobs through the website?",
+        answer:
+          "Yes. Calls and WhatsApp are always one tap away, and quote forms collect the job details upfront so you can respond fast with an accurate price.",
+      },
+      {
+        question: "We're a small operation. Is this worth it for us?",
+        answer:
+          "Small teams benefit most. A professional website makes a two-van operation look like the biggest plumber in the area, and emergency work pays well when you're the first call.",
+      },
+      {
+        question: "How quickly can we launch?",
+        answer:
+          "Most plumbing sites go live within 2 to 4 weeks. We handle the words and images, you approve, we launch.",
+      },
+    ],
+    seo: {
+      title: "Plumbing Website Design South Africa",
+      description:
+        "Premium website design, SEO and lead generation for South African plumbing companies. Win the emergency search and book more jobs.",
+    },
+  },
+  {
     slug: "solar-installers",
     name: "Solar Installers",
     singular: "solar installer",
     icon: "sun",
     featured: true,
-    searchTerm: "solar installation quotes",
-    urgentJob: "load shedding hitting their business",
-    overrides: {
-      hero: {
-        headline: "Websites for Solar Installers that turn interest into installations",
-        subheadline:
-          "Solar is a big-ticket purchase that people research for months. We build websites that educate, build trust and capture quote requests from homeowners who are ready to invest.",
+    hero: {
+      headline: "Websites for solar installers that turn research into signed quotes",
+      subheadline:
+        "Solar customers research for months before they spend. We build websites that answer their questions, earn their trust early, and capture the quote request before your competitors even know they exist.",
+    },
+    problems: [
+      "Homeowners research on your competitors' websites and buy from them too",
+      "Your site can't answer the questions every solar buyer asks",
+      "Quote requests arrive with no detail, so every quote starts with a long phone call",
+      "Load shedding surges bring traffic your website fails to capture",
+      "Big national installers outrank you in your own area",
+    ],
+    solutions: [
+      {
+        title: "Be part of the research",
+        description:
+          "Pages that answer the real questions: costs, payback, load shedding cover, financing. Customers who learn from you tend to buy from you.",
       },
+      {
+        title: "Quotes that feel like calculations",
+        description:
+          "A quote form built around usage and goals, so requests arrive qualified and your proposals land with customers who already trust your numbers.",
+      },
+      {
+        title: "Local authority, built deliberately",
+        description:
+          "Installation galleries, certifications and area pages that make you the obvious local choice over faceless national brands.",
+      },
+      {
+        title: "Capture the surge",
+        description:
+          "When load shedding hits, searches spike. Fast pages and strong rankings mean those spikes turn into your pipeline, not your competitor's.",
+      },
+    ],
+    benefits: [
+      "More qualified quote requests every month",
+      "Customers arrive pre-sold on your expertise",
+      "Bigger average systems from better educated buyers",
+      "Outrank national players in your service areas",
+      "A premium brand for a premium purchase",
+      "Pipeline you can see and measure",
+    ],
+    services: ["website-design", "technical-seo", "lead-generation", "hosting"],
+    faqs: [
+      {
+        question: "How much does a solar company website cost?",
+        answer:
+          "Fixed quote, agreed before we start, sized to your goals. Book a strategy call and we'll give you a straight number once we understand your business.",
+      },
+      {
+        question: "Solar is competitive. Can we actually rank?",
+        answer:
+          "Locally, yes. National players are weak at suburb-level relevance. We win rankings where your installs actually happen, which is where the buying decisions are made.",
+      },
+      {
+        question: "Can the website qualify leads before they reach us?",
+        answer:
+          "Yes. Our solar quote forms collect property type, usage and budget expectations upfront, so your team spends time on serious buyers.",
+      },
+      {
+        question: "How long does it take?",
+        answer:
+          "Solar sites are content-rich, so plan for 3 to 4 weeks. Every week is spent building the asset that will feed your pipeline for years.",
+      },
+    ],
+    seo: {
+      title: "Solar Website Design South Africa",
+      description:
+        "Premium website design, SEO and lead generation for South African solar installers. Turn months of customer research into signed quotes.",
     },
-  }),
-  defineIndustry({
-    slug: "roofers",
-    name: "Roofers",
-    singular: "roofer",
-    icon: "home",
-    featured: true,
-    searchTerm: "roof repairs near me",
-    urgentJob: "a leaking roof before the weekend storm",
-  }),
-  defineIndustry({
-    slug: "handyman-services",
-    name: "Handyman Services",
-    singular: "handyman",
-    icon: "hammer",
-    featured: true,
-    searchTerm: "handyman near me",
-    urgentJob: "a list of repairs that's been growing for months",
-  }),
-  defineIndustry({
-    slug: "hvac",
-    name: "HVAC Companies",
-    singular: "HVAC technician",
-    icon: "wind",
-    featured: false,
-    searchTerm: "aircon installation near me",
-    urgentJob: "an aircon that died in a heatwave",
-  }),
-  defineIndustry({
-    slug: "security-companies",
-    name: "Security Companies",
-    singular: "security provider",
-    icon: "shield",
-    featured: false,
-    searchTerm: "security company near me",
-    urgentJob: "a break-in on their street last night",
-  }),
-  defineIndustry({
-    slug: "builders",
-    name: "Builders",
-    singular: "builder",
-    icon: "hard-hat",
-    featured: true,
-    searchTerm: "building contractors near me",
-    urgentJob: "a renovation they've postponed for years",
-  }),
-  defineIndustry({
-    slug: "landscapers",
-    name: "Landscapers",
-    singular: "landscaper",
-    icon: "trees",
-    featured: false,
-    searchTerm: "landscaping services near me",
-  }),
-  defineIndustry({
-    slug: "cleaning-companies",
-    name: "Cleaning Companies",
-    singular: "cleaning company",
-    icon: "sparkles",
-    featured: false,
-    searchTerm: "cleaning services near me",
-  }),
-  defineIndustry({
-    slug: "painters",
-    name: "Painters",
-    singular: "painter",
-    icon: "paintbrush",
-    featured: false,
-    searchTerm: "painters near me",
-  }),
-  defineIndustry({
-    slug: "law-firms",
-    name: "Law Firms",
-    singular: "attorney",
-    icon: "scale",
-    featured: true,
-    searchTerm: "attorney near me",
-    urgentJob: "a legal matter they can't afford to get wrong",
-    overrides: {
-      benefits: [
-        "More consultation bookings from qualified clients",
-        "A digital presence that matches your professional standing",
-        "Rank for the practice areas you want to grow",
-        "Clear positioning that attracts the right matters",
-        "Confidential, professional enquiry handling",
-        "Authority content that wins trust before the first call",
-      ],
-    },
-  }),
-  defineIndustry({
-    slug: "medical-clinics",
-    name: "Medical Clinics",
-    singular: "clinic",
-    icon: "stethoscope",
-    featured: false,
-    searchTerm: "doctor near me",
-    urgentJob: "a health concern they want seen to today",
-  }),
-  defineIndustry({
-    slug: "dentists",
-    name: "Dentists",
-    singular: "dentist",
-    icon: "smile",
-    featured: false,
-    searchTerm: "dentist near me",
-    urgentJob: "a toothache that can't wait",
-  }),
-  defineIndustry({
-    slug: "accountants",
-    name: "Accountants",
-    singular: "accountant",
-    icon: "calculator",
-    featured: false,
-    searchTerm: "accountant for small business",
-  }),
-  defineIndustry({
-    slug: "financial-advisors",
-    name: "Financial Advisors",
-    singular: "financial advisor",
-    icon: "trending-up",
-    featured: false,
-    searchTerm: "financial advisor near me",
-  }),
+  },
 ];
 
-export const featuredIndustries = industries.filter((i) => i.featured);
+export const featuredIndustries = industries;
 
 export function getIndustry(slug: string): Industry | undefined {
   return industries.find((i) => i.slug === slug);

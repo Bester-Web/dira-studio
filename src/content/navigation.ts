@@ -2,11 +2,11 @@ import type { NavLink } from "./types";
 
 /** Primary header navigation. */
 export const mainNav: NavLink[] = [
+  { label: "Work", href: "/portfolio" },
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
-  { label: "Work", href: "/portfolio" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 /** Footer column: company */
@@ -14,16 +14,15 @@ export const footerCompanyNav: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Work", href: "/portfolio" },
   { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Book a Strategy Call", href: "/contact" },
 ];
 
-/** Footer column: services (top-level page anchors) */
+/** Footer column: services */
 export const footerServicesNav: NavLink[] = [
-  { label: "Website Design", href: "/services#website-design" },
-  { label: "Website Redesign", href: "/services#website-redesign" },
-  { label: "Landing Pages", href: "/services#landing-pages" },
-  { label: "Technical SEO", href: "/services#technical-seo" },
-  { label: "Hosting & Care", href: "/services#hosting" },
+  { label: "Premium Website Design", href: "/services#website-design" },
+  { label: "SEO", href: "/services#technical-seo" },
+  { label: "Lead Generation", href: "/services#lead-generation" },
+  { label: "Premium Web Hosting", href: "/services#hosting" },
 ];
 
 /** Footer column: legal */

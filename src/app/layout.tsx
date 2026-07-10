@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsappFab } from "@/components/shared/whatsapp-fab";
@@ -13,9 +13,9 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -62,7 +62,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body>
         <script
           type="application/ld+json"
@@ -82,7 +82,9 @@ export default function RootLayout({
         <main id="main-content" className="pt-(--ds-header-height)">
           {children}
         </main>
-        <Footer />
+        <div className="zone-dark bg-background">
+          <Footer />
+        </div>
         <WhatsappFab />
       </body>
     </html>

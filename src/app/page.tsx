@@ -1,23 +1,24 @@
 import { Hero } from "@/components/sections/hero";
-import { LaptopShowcase } from "@/components/sections/laptop-showcase";
+import { ShowcaseCarousel } from "@/components/sections/showcase-carousel";
 import { SocialProof } from "@/components/sections/social-proof";
-import { ProblemSection } from "@/components/sections/problem-section";
-import { SystemSection } from "@/components/sections/system-section";
-import { DifferenceSection } from "@/components/sections/difference-section";
-import { IndustriesGrid } from "@/components/sections/industries-grid";
-import { ServicesGrid } from "@/components/sections/services-grid";
-import { PortfolioGrid } from "@/components/sections/portfolio-grid";
+import { PainPoints } from "@/components/sections/pain-points";
+import { ServicesSection } from "@/components/sections/services-section";
+import { IndustriesPanorama } from "@/components/sections/industries-panorama";
+import { ResultsSection } from "@/components/sections/results-section";
 import { Testimonials } from "@/components/sections/testimonials";
+import { FounderSection } from "@/components/sections/founder-section";
+import { ProcessTimeline } from "@/components/sections/process-timeline";
 import { FaqSection } from "@/components/sections/faq-section";
 import { FinalCta } from "@/components/sections/final-cta";
-import { siteConfig } from "@/content/site.config";
-import { featuredIndustries } from "@/content/industries";
-import { featuredServices } from "@/content/services";
-import { portfolio } from "@/content/portfolio";
+import { ZoneBridge } from "@/components/shared/zone-bridge";
 import { testimonials } from "@/content/testimonials";
 import { homeFaqs } from "@/content/faq";
 import { faqSchema, jsonLd } from "@/lib/schema";
 
+/**
+ * The homepage journey: begins in warm ivory daylight and
+ * descends into a candlelit executive dark as you scroll.
+ */
 export default function HomePage() {
   return (
     <>
@@ -25,17 +26,26 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(homeFaqs)) }}
       />
+
+      {/* Light zone */}
       <Hero />
-      {siteConfig.features.laptopShowcase && <LaptopShowcase />}
+      <ShowcaseCarousel />
       <SocialProof />
-      <ProblemSection />
-      <SystemSection />
-      <DifferenceSection />
-      <IndustriesGrid industries={featuredIndustries} showAllLink />
-      <ServicesGrid services={featuredServices} showAllLink />
-      <PortfolioGrid projects={portfolio.slice(0, 2)} showAllLink />
-      <Testimonials testimonials={testimonials} />
-      <FaqSection items={homeFaqs} showAllLink />
+      <PainPoints />
+      <ServicesSection />
+      <IndustriesPanorama />
+      <ResultsSection />
+
+      {/* The lighting changes */}
+      <ZoneBridge />
+
+      {/* Dark zone */}
+      <div className="zone-dark bg-background">
+        <Testimonials testimonials={testimonials} />
+        <FounderSection />
+        <ProcessTimeline />
+        <FaqSection items={homeFaqs} showAllLink />
+      </div>
       <FinalCta />
     </>
   );

@@ -42,11 +42,10 @@ export default function AboutPage() {
                 in touch.
               </p>
               <p>
-                {company.name} was founded to fix that imbalance. We build websites
-                for service businesses. Electricians, builders, law firms, solar
-                installers and dozens more, with a single obsession: turning the
-                people already searching for your services into calls, WhatsApp
-                messages and quote requests.
+                {company.name} was founded to fix that imbalance. We build premium
+                websites for South African electrical, plumbing and solar companies,
+                with a single obsession: turning the people already searching for
+                your services into calls, WhatsApp messages and quote requests.
               </p>
               <p>
                 We&apos;re not a volume shop and we don&apos;t do template work. Every

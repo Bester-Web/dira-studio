@@ -92,7 +92,7 @@ export function Navbar() {
           </Button>
           <Button asChild size="sm">
             <Link href="/contact">
-              Get a quote
+              Book Free Strategy Call
               <ArrowRight aria-hidden />
             </Link>
           </Button>
@@ -148,7 +148,7 @@ export function Navbar() {
               <div className="mt-auto flex flex-col gap-3 pt-6">
                 <Button asChild size="lg" className="w-full">
                   <Link href="/contact">
-                    Get a quote
+                    Book Your Free Strategy Call
                     <ArrowRight aria-hidden />
                   </Link>
                 </Button>

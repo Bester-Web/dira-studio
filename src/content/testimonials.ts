@@ -8,38 +8,38 @@ import type { Testimonial } from "./types";
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "I used to quote against four other electricians and lose on price. Now customers call already convinced. The website makes us look like the biggest company in the area, and we're three people.",
+      "Our phones haven't stopped ringing since Dira Studio built our website and sorted our SEO. We hired two more electricians in the last quarter just to keep up. I wish we'd done this years ago.",
     author: "Pieter v.d. Merwe",
     role: "Owner",
-    company: "Volt Electrical",
-    industry: "Electricians",
-    result: "3.1x more calls",
+    company: "PowerGrid Electrical",
+    industry: "Electrical Contractor",
+    result: "+178 leads in 90 days",
   },
   {
     quote:
-      "The number that changed my business: cost per lead down almost half. Same ad budget, more than double the emergency calls. Should have done this two years ago.",
+      "Best investment we've made. The leads are consistent and the quality is unreal. People used to phone asking what we charge. Now they phone asking when we can start.",
     author: "Sipho Ndlovu",
     role: "Managing Director",
-    company: "AquaFlow Plumbing",
-    industry: "Plumbers",
-    result: "47% cheaper leads",
+    company: "FlowRight Plumbing",
+    industry: "Plumbing Company",
+    result: "+143 booked jobs",
   },
   {
     quote:
-      "Solar customers do their homework. Our new site answers their questions before they ask, so by the time they request a quote they've already chosen us. The leads are night and day better.",
+      "Dira Studio helped us become the #1 solar company in our area. The website answers customer questions before they even call, so by the time we quote, they've already chosen us.",
     author: "Marike Botha",
     role: "Sales Director",
-    company: "Helios Solar",
-    industry: "Solar Installers",
-    result: "4.2x quote requests",
+    company: "SunMaster Solar",
+    industry: "Solar Installer",
+    result: "+260% quote requests",
   },
   {
     quote:
-      "We compete against national security brands. Dira made us look like we belong in that conversation, and now estates approach us. Nine out of ten new clients mention the website.",
+      "I was sceptical about spending on a website. Three weeks after launch we picked up a body corporate contract worth more than the whole project cost. That contract came straight through the site.",
     author: "Johan Kriel",
-    role: "Founder",
-    company: "Sentinel Security",
-    industry: "Security Companies",
-    result: "41% more contracts",
+    role: "Owner",
+    company: "TrueFlow Plumbing",
+    industry: "Plumbing Company",
+    result: "Contract won in week 3",
   },
 ];
