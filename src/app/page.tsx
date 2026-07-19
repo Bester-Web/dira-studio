@@ -1,3 +1,4 @@
+import { CinematicPrologue } from "@/components/sections/cinematic-prologue";
 import { Hero } from "@/components/sections/hero";
 import { ShowcaseCarousel } from "@/components/sections/showcase-carousel";
 import { SocialProof } from "@/components/sections/social-proof";
@@ -27,6 +28,10 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(homeFaqs)) }}
       />
+
+      {/* Cinematic approach: outside the villa, through the window, into the room.
+          Desktop only, skipped for reduced motion. */}
+      <CinematicPrologue />
 
       {/* Light zone */}
       <Hero />
