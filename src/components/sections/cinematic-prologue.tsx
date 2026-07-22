@@ -166,16 +166,17 @@ export function CinematicPrologue() {
 
         <div
           ref={copyRef}
-          className="absolute inset-y-0 left-[7vw] z-10 flex max-w-2xl flex-col justify-center"
+          className="absolute inset-y-0 right-0 left-0 z-10 flex flex-col justify-center px-6 lg:right-auto lg:left-[7vw] lg:max-w-2xl lg:px-0"
         >
+          {/* long eyebrow overflows a narrow phone, so show it on desktop only */}
           <span
-            className="mb-5 w-max rounded-pill border px-4 py-2 text-xs font-semibold tracking-[0.22em] text-white uppercase"
+            className="mb-5 hidden w-max max-w-full rounded-pill border px-4 py-2 text-xs font-semibold tracking-[0.22em] text-white uppercase lg:inline-block"
             style={{ borderColor: "rgba(255,240,210,.28)", background: "rgba(20,14,6,.55)" }}
           >
             {hero.eyebrow}
           </span>
           <p
-            className="font-display text-3xl leading-tight font-semibold text-[#ffeec2] italic sm:text-4xl xl:text-5xl"
+            className="font-display text-[1.7rem] leading-tight font-semibold text-[#ffeec2] italic sm:text-4xl xl:text-5xl"
             style={{ textShadow: "0 2px 20px rgba(0,0,0,.95), 0 0 4px rgba(0,0,0,.9)" }}
           >
             Step inside the studio.
