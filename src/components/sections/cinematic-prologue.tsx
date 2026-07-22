@@ -6,18 +6,21 @@ import { ChevronDown } from "lucide-react";
 import { hero } from "@/content/home";
 
 /**
- * Cinematic prologue. A real generated fly-in video (outside the villa, through
- * the window, into the room) is scrubbed by scroll: scroll position maps to
- * video time, so you drive the camera with the wheel. At the end it brightens
- * into the ivory homepage below.
+ * Cinematic prologue: a generated fly-in (outside the villa, through the window,
+ * into the room).
  *
- * The video is encoded all-keyframe so seeking every frame stays smooth.
+ * Desktop: the video is SCRUBBED by scroll (scroll position -> video time), so
+ * you drive the camera. Uses the sharp all-keyframe clip.
  *
- * Desktop only and skipped for reduced-motion, matching <Hero />. On mobile the
- * section is display:none, so the video is never downloaded or laid out.
+ * Mobile: scroll-scrubbing video is unreliable on phones (iOS especially), so
+ * the phone gets a small clip that PLAYS THROUGH once on its own, then the site
+ * scrolls up. Separate lightweight file, so phones download ~0.4MB, not 4MB.
+ *
+ * Reduced-motion users get neither.
  */
 
-const VIDEO_SRC = "/videos/flyin.mp4";
+const DESKTOP_SRC = "/videos/flyin.mp4";
+const MOBILE_SRC = "/videos/flyin-mobile.mp4";
 const POSTER_SRC = "/images/cinematic/villa.webp";
 
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
@@ -34,20 +37,21 @@ export function CinematicPrologue() {
   const veilRef = React.useRef<HTMLDivElement>(null);
 
   const reduceMotion = useReducedMotion();
+  const [mounted, setMounted] = React.useState(false);
   const [isDesktop, setIsDesktop] = React.useState(false);
 
   React.useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
     const update = () => setIsDesktop(mq.matches);
     update();
+    setMounted(true);
     mq.addEventListener("change", update);
     return () => mq.removeEventListener("change", update);
   }, []);
 
-  const active = isDesktop && !reduceMotion;
-
+  // Desktop only: scrub the video with scroll.
   React.useEffect(() => {
-    if (!active) return;
+    if (reduceMotion || !mounted || !isDesktop) return;
     const section = sectionRef.current;
     const video = videoRef.current;
     if (!section || !video) return;
@@ -65,26 +69,19 @@ export function CinematicPrologue() {
     video.addEventListener("loadedmetadata", onMeta);
     video.load();
 
-    // Only touch the DOM when a value actually changes.
     const written: Record<string, string> = {};
-    const setStyle = (el: HTMLElement | null, prop: string, v: string) => {
+    const setStyle = (el: HTMLElement | null, prop: string, key: string, v: string) => {
       if (!el) return;
-      const k = `${prop}`;
-      const key = (el.dataset.k || "") + k;
-      if (written[key] !== v) {
-        written[key] = v;
+      const k = key + prop;
+      if (written[k] !== v) {
+        written[k] = v;
         el.style.setProperty(prop, v);
       }
     };
-    copyRef.current?.setAttribute("data-k", "copy");
-    hintRef.current?.setAttribute("data-k", "hint");
-    veilRef.current?.setAttribute("data-k", "veil");
 
     const loop = () => {
       raf = requestAnimationFrame(loop);
       const scroll = window.scrollY || window.pageYOffset || 0;
-
-      // Stop once the homepage has taken over.
       if (scroll > section.offsetHeight + 120) return;
 
       const range = section.offsetHeight - window.innerHeight;
@@ -93,22 +90,20 @@ export function CinematicPrologue() {
 
       if (ready) {
         const t = clamp(cur, 0, 1) * (duration - 0.05);
-        // avoid redundant seeks that stack up and stutter
         if (Math.abs(video.currentTime - t) > 0.01) {
           try {
             video.currentTime = t;
           } catch {
-            /* seeking not ready yet */
+            /* not seekable yet */
           }
         }
       }
 
       const out = 1 - smooth(0.05, 0.2, cur);
-      setStyle(copyRef.current, "opacity", out.toFixed(2));
-      setStyle(copyRef.current, "transform", `translateY(${((1 - out) * -26).toFixed(1)}px)`);
-      setStyle(hintRef.current, "opacity", (1 - smooth(0.16, 0.34, cur)).toFixed(2));
-      // brighten into the ivory homepage at the very end
-      setStyle(veilRef.current, "opacity", (smooth(0.86, 1.0, cur) * 0.92).toFixed(2));
+      setStyle(copyRef.current, "opacity", "c", out.toFixed(2));
+      setStyle(copyRef.current, "transform", "c", `translateY(${((1 - out) * -26).toFixed(1)}px)`);
+      setStyle(hintRef.current, "opacity", "h", (1 - smooth(0.16, 0.34, cur)).toFixed(2));
+      setStyle(veilRef.current, "opacity", "v", (smooth(0.86, 1.0, cur) * 0.92).toFixed(2));
     };
     raf = requestAnimationFrame(loop);
 
@@ -116,40 +111,56 @@ export function CinematicPrologue() {
       cancelAnimationFrame(raf);
       video.removeEventListener("loadedmetadata", onMeta);
     };
-  }, [active]);
+  }, [mounted, isDesktop, reduceMotion]);
 
   if (reduceMotion) return null;
+
+  const showVideo = mounted;
 
   return (
     <section
       ref={sectionRef}
       aria-label="Introduction"
-      className="relative hidden h-[340vh] lg:block"
+      // Full screen on phones, tall scroll track on desktop for the scrub.
+      className="relative block h-screen lg:h-[340vh]"
     >
       <div className="sticky top-0 h-screen overflow-hidden bg-[#100c06]">
-        {/* Rendered only on desktop, so mobile never downloads the video. */}
-        {active && (
-          <video
-            ref={videoRef}
-            className="absolute inset-0 h-full w-full object-cover"
-            src={VIDEO_SRC}
-            poster={POSTER_SRC}
-            muted
-            playsInline
-            preload="auto"
-            // decorative, controlled by scroll
-            aria-hidden
-            tabIndex={-1}
-          />
-        )}
+        {showVideo &&
+          (isDesktop ? (
+            <video
+              ref={videoRef}
+              key="desktop"
+              className="absolute inset-0 h-full w-full object-cover"
+              src={DESKTOP_SRC}
+              poster={POSTER_SRC}
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden
+              tabIndex={-1}
+            />
+          ) : (
+            <video
+              key="mobile"
+              className="absolute inset-0 h-full w-full object-cover"
+              src={MOBILE_SRC}
+              poster={POSTER_SRC}
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden
+              tabIndex={-1}
+            />
+          ))}
 
-        {/* readability scrim, strongest on the left where the copy sits */}
+        {/* readability scrim */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg,rgba(6,4,2,.9) 0%,rgba(6,4,2,.68) 26%,rgba(6,4,2,.34) 46%,transparent 70%), linear-gradient(0deg,rgba(6,4,2,.5) 0%,transparent 40%)",
+              "linear-gradient(90deg,rgba(6,4,2,.9) 0%,rgba(6,4,2,.68) 26%,rgba(6,4,2,.34) 46%,transparent 70%), linear-gradient(0deg,rgba(6,4,2,.55) 0%,transparent 40%)",
           }}
         />
 
@@ -164,14 +175,14 @@ export function CinematicPrologue() {
             {hero.eyebrow}
           </span>
           <p
-            className="font-display text-4xl leading-tight font-semibold text-[#ffeec2] italic xl:text-5xl"
+            className="font-display text-3xl leading-tight font-semibold text-[#ffeec2] italic sm:text-4xl xl:text-5xl"
             style={{ textShadow: "0 2px 20px rgba(0,0,0,.95), 0 0 4px rgba(0,0,0,.9)" }}
           >
             Step inside the studio.
           </p>
         </div>
 
-        {/* ivory brighten that bridges the dark room into the light homepage */}
+        {/* ivory brighten into the light homepage (desktop scrub end) */}
         <div
           ref={veilRef}
           aria-hidden
@@ -179,10 +190,11 @@ export function CinematicPrologue() {
           style={{ background: "#f6f1e4" }}
         />
 
+        {/* scroll hint, desktop only */}
         <div
           ref={hintRef}
           aria-hidden
-          className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 lg:block"
         >
           <span className="flex size-10 items-center justify-center rounded-pill border border-[rgba(243,236,218,.3)] bg-[rgba(20,14,6,.5)]">
             <ChevronDown className="size-4 animate-bounce text-[#f0e2c4]" />
